@@ -1,0 +1,10 @@
+0.6
+2016.3
+Oct 10 2016
+19:46:48
+C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/verilog/AESL_automem_a.v,1492483947,systemVerilog,,,,AESL_automem_a,D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/verilog/AESL_automem_b.v,1492483947,systemVerilog,,,,AESL_automem_b,D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/verilog/AESL_automem_res.v,1492483947,systemVerilog,,,,AESL_automem_res,D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/verilog/matrixmul.autotb.v,1492483947,systemVerilog,,,,apatb_matrixmul_top,D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/verilog/matrixmul.v,1492483847,systemVerilog,,,,matrixmul,D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/verilog/matrixmul_mac_mulbkb.v,1492483848,systemVerilog,,,,matrixmul_mac_mulbkb;matrixmul_mac_mulbkb_DSP48_0,D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,

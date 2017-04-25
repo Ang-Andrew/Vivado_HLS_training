@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# xsim v2016.3 (64-bit)
+# SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
+# IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
+# Start of session at: Tue Apr 18 14:51:16 2017
+# Process ID: 4340
+# Current directory: C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/vhdl
+# Command line: xsim.exe -mode tcl -source {xsim.dir/matrixmul/xsim_script.tcl}
+# Log file: C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/vhdl/xsim.log
+# Journal file: C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/vhdl\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/matrixmul/xsim_script.tcl
+# xsim {matrixmul} -autoloadwcfg -tclbatch {matrixmul.tcl}
+Vivado Simulator 2016.3
+Time resolution is 1 ps
+source matrixmul.tcl
+## run all
+Note: simulation done!
+Time: 1245 ns  Iteration: 1  Process: /apatb_matrixmul_top/generate_sim_done_proc  File: C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/vhdl/matrixmul.autotb.vhd
+Failure: NORMAL EXIT (note: failure is to force the simulator to stop)
+Time: 1245 ns  Iteration: 1  Process: /apatb_matrixmul_top/generate_sim_done_proc  File: C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/vhdl/matrixmul.autotb.vhd
+$finish called at time : 1245 ns
+## quit
+INFO: [Common 17-206] Exiting xsim at Tue Apr 18 14:51:29 2017...

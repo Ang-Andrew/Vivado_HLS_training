@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2016.3 (64-bit)
+# SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
+# IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
+# Start of session at: Tue Apr 18 14:51:13 2017
+# Process ID: 12100
+# Current directory: C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/vhdl
+# Command line: wbtcv.exe -mode batch -source C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/vhdl/xsim.dir/matrixmul/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/vhdl/webtalk.log
+# Journal file: C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/vhdl\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab1/lab1/solution1/sim/vhdl/xsim.dir/matrixmul/webtalk/xsim_webtalk.tcl -notrace
