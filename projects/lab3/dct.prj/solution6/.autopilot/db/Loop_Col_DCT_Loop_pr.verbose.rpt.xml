@@ -1,0 +1,195 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'Loop_Col_DCT_Loop_pr'" level="0">
+<item name = "Date">Wed Apr 26 22:35:37 2017
+</item>
+<item name = "Version">2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)</item>
+<item name = "Project">dct.prj</item>
+<item name = "Solution">solution6</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 9.40, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">297, 297, 297, 297, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Col_DCT_Loop">296, 296, 37, -, -, 8, no</column>
+<column name=" + DCT_Outer_Loop">34, 34, 7, 4, 1, 8, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, 8, -, -</column>
+<column name="Expression">-, -, 0, 134</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">-, -, -, -</column>
+<column name="Memory">0, -, 119, 16</column>
+<column name="Multiplexer">-, -, -, 26</column>
+<column name="Register">-, -, 430, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">0, 3, ~0, ~0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+<column name="dct_mac_muladd_14kbM_x_U51">dct_mac_muladd_14kbM, i0 + i1 * i2</column>
+<column name="dct_mac_muladd_15lbW_x_U53">dct_mac_muladd_15lbW, i0 + i1 * i2</column>
+<column name="dct_mac_muladd_15lbW_x_U54">dct_mac_muladd_15lbW, i0 + i1 * i2</column>
+<column name="dct_mac_muladd_15lbW_x_U55">dct_mac_muladd_15lbW, i0 * i1 + i2</column>
+<column name="dct_mac_muladd_15mb6_x_U56">dct_mac_muladd_15mb6, i0 * i1 + i2</column>
+<column name="dct_mul_mul_15s_1jbC_x_U49">dct_mul_mul_15s_1jbC, i0 * i1</column>
+<column name="dct_mul_mul_15s_1jbC_x_U50">dct_mul_mul_15s_1jbC, i0 * i1</column>
+<column name="dct_mul_mul_15s_1jbC_x_U52">dct_mul_mul_15s_1jbC, i0 * i1</column>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="dct_coeff_table_0_U">dct_1d_1_dct_coefbkb, 0, 14, 2, 8, 14, 1, 112</column>
+<column name="dct_coeff_table_1_U">dct_1d_1_dct_coefcud, 0, 15, 2, 8, 15, 1, 120</column>
+<column name="dct_coeff_table_2_U">dct_1d_1_dct_coefdEe, 0, 15, 2, 8, 15, 1, 120</column>
+<column name="dct_coeff_table_3_U">dct_1d_1_dct_coefeOg, 0, 15, 2, 8, 15, 1, 120</column>
+<column name="dct_coeff_table_4_U">dct_1d_1_dct_coeffYi, 0, 15, 2, 8, 15, 1, 120</column>
+<column name="dct_coeff_table_5_U">dct_1d_1_dct_coefg8j, 0, 15, 2, 8, 15, 1, 120</column>
+<column name="dct_coeff_table_6_U">dct_1d_1_dct_coefhbi, 0, 15, 2, 8, 15, 1, 120</column>
+<column name="dct_coeff_table_7_U">dct_1d_1_dct_coefibs, 0, 15, 2, 8, 15, 1, 120</column>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="i_fu_287_p2">+, 0, 0, 4, 4, 1</column>
+<column name="k_fu_421_p2">+, 0, 0, 4, 4, 1</column>
+<column name="tmp3_fu_506_p2">+, 0, 0, 14, 29, 29</column>
+<column name="tmp_36_fu_437_p2">+, 0, 0, 8, 8, 8</column>
+<column name="tmp_9_i_fu_510_p2">+, 0, 0, 14, 29, 29</column>
+<column name="tmp_fu_484_p2">+, 0, 0, 29, 29, 29</column>
+<column name="tmp_5_fu_281_p2">icmp, 0, 0, 2, 4, 5</column>
+<column name="tmp_i_fu_415_p2">icmp, 0, 0, 2, 4, 5</column>
+<column name="tmp_22_fu_310_p2">or, 0, 0, 8, 7, 1</column>
+<column name="tmp_24_fu_325_p2">or, 0, 0, 8, 7, 2</column>
+<column name="tmp_26_fu_340_p2">or, 0, 0, 8, 7, 2</column>
+<column name="tmp_28_fu_355_p2">or, 0, 0, 8, 7, 3</column>
+<column name="tmp_30_fu_370_p2">or, 0, 0, 8, 7, 3</column>
+<column name="tmp_32_fu_385_p2">or, 0, 0, 8, 7, 3</column>
+<column name="tmp_34_fu_400_p2">or, 0, 0, 8, 7, 3</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">2, 8, 1, 8</column>
+<column name="col_inbuf_address0">6, 5, 6, 30</column>
+<column name="col_inbuf_address1">6, 5, 6, 30</column>
+<column name="i_2_i_reg_251">4, 2, 4, 8</column>
+<column name="k_i_phi_fu_266_p4">4, 2, 4, 8</column>
+<column name="k_i_reg_262">4, 2, 4, 8</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">7, 0, 7, 0</column>
+<column name="ap_done_reg">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter0">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
+<column name="ap_pipeline_reg_pp0_iter1_tmp_36_reg_655">8, 0, 8, 0</column>
+<column name="ap_pipeline_reg_pp0_iter1_tmp_i_reg_636">1, 0, 1, 0</column>
+<column name="col_inbuf_addr_1_reg_601">3, 0, 6, 3</column>
+<column name="col_inbuf_addr_2_reg_606">3, 0, 6, 3</column>
+<column name="col_inbuf_addr_3_reg_611">3, 0, 6, 3</column>
+<column name="col_inbuf_addr_4_reg_616">3, 0, 6, 3</column>
+<column name="col_inbuf_addr_5_reg_621">3, 0, 6, 3</column>
+<column name="col_inbuf_addr_6_reg_626">3, 0, 6, 3</column>
+<column name="col_inbuf_addr_7_reg_631">3, 0, 6, 3</column>
+<column name="col_inbuf_addr_reg_596">3, 0, 6, 3</column>
+<column name="dct_coeff_table_0_lo_reg_690">14, 0, 14, 0</column>
+<column name="dct_coeff_table_1_lo_reg_675">15, 0, 15, 0</column>
+<column name="dct_coeff_table_2_lo_reg_730">15, 0, 15, 0</column>
+<column name="dct_coeff_table_3_lo_reg_680">15, 0, 15, 0</column>
+<column name="dct_coeff_table_4_lo_reg_735">15, 0, 15, 0</column>
+<column name="dct_coeff_table_5_lo_reg_715">15, 0, 15, 0</column>
+<column name="dct_coeff_table_6_lo_reg_745">15, 0, 15, 0</column>
+<column name="dct_coeff_table_7_lo_reg_750">15, 0, 15, 0</column>
+<column name="i_2_i_reg_251">4, 0, 4, 0</column>
+<column name="i_reg_586">4, 0, 4, 0</column>
+<column name="k_cast1_i_reg_645">4, 0, 32, 28</column>
+<column name="k_i_reg_262">4, 0, 4, 0</column>
+<column name="k_reg_640">4, 0, 4, 0</column>
+<column name="reg_273">16, 0, 16, 0</column>
+<column name="reg_277">16, 0, 16, 0</column>
+<column name="tmp1_reg_755">29, 0, 29, 0</column>
+<column name="tmp4_reg_765">29, 0, 29, 0</column>
+<column name="tmp5_reg_770">29, 0, 29, 0</column>
+<column name="tmp_27_cast_reg_591">4, 0, 8, 4</column>
+<column name="tmp_36_reg_655">8, 0, 8, 0</column>
+<column name="tmp_3_1_i_reg_695">29, 0, 29, 0</column>
+<column name="tmp_3_3_i_reg_705">29, 0, 29, 0</column>
+<column name="tmp_3_5_i_reg_740">29, 0, 29, 0</column>
+<column name="tmp_i_reg_636">1, 0, 1, 0</column>
+<column name="tmp_reg_760">29, 0, 29, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, Loop_Col_DCT_Loop_pr, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, Loop_Col_DCT_Loop_pr, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, Loop_Col_DCT_Loop_pr, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, Loop_Col_DCT_Loop_pr, return value</column>
+<column name="ap_continue">in, 1, ap_ctrl_hs, Loop_Col_DCT_Loop_pr, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, Loop_Col_DCT_Loop_pr, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, Loop_Col_DCT_Loop_pr, return value</column>
+<column name="col_inbuf_address0">out, 6, ap_memory, col_inbuf, array</column>
+<column name="col_inbuf_ce0">out, 1, ap_memory, col_inbuf, array</column>
+<column name="col_inbuf_q0">in, 16, ap_memory, col_inbuf, array</column>
+<column name="col_inbuf_address1">out, 6, ap_memory, col_inbuf, array</column>
+<column name="col_inbuf_ce1">out, 1, ap_memory, col_inbuf, array</column>
+<column name="col_inbuf_q1">in, 16, ap_memory, col_inbuf, array</column>
+<column name="col_outbuf_i_address0">out, 6, ap_memory, col_outbuf_i, array</column>
+<column name="col_outbuf_i_ce0">out, 1, ap_memory, col_outbuf_i, array</column>
+<column name="col_outbuf_i_we0">out, 1, ap_memory, col_outbuf_i, array</column>
+<column name="col_outbuf_i_d0">out, 16, ap_memory, col_outbuf_i, array</column>
+</table>
+</item>
+</section>
+</profile>

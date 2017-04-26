@@ -1,0 +1,192 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'dct'" level="0">
+<item name = "Date">Wed Apr 26 22:35:38 2017
+</item>
+<item name = "Version">2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)</item>
+<item name = "Project">dct.prj</item>
+<item name = "Solution">solution6</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Target clock period (ns)">10.00</item>
+<item name = "Clock uncertainty (ns)">1.25</item>
+<item name = "Estimated clock period (ns)">9.40</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">871, 871, 306, 306, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_Loop_Row_DCT_Loop_pr_fu_110">Loop_Row_DCT_Loop_pr, 305, 305, 305, 305, none</column>
+<column name="grp_Loop_Col_DCT_Loop_pr_fu_139">Loop_Col_DCT_Loop_pr, 297, 297, 297, 297, none</column>
+<column name="grp_write_data_fu_161">write_data, 66, 66, 66, 66, none</column>
+<column name="grp_read_data_fu_168">read_data, 66, 66, 66, 66, none</column>
+<column name="grp_Loop_Xpose_Row_Outer_fu_190">Loop_Xpose_Row_Outer, 66, 66, 66, 66, none</column>
+<column name="grp_Loop_Xpose_Col_Outer_fu_196">Loop_Xpose_Col_Outer, 66, 66, 66, 66, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, -, -, -</column>
+<column name="Expression">-, -, 0, 19</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">0, 16, 1205, 640</column>
+<column name="Memory">8, -, 512, 32</column>
+<column name="Multiplexer">-, -, -, 8</column>
+<column name="Register">-, -, 8, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">2, 7, 1, 1</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="Loop_Col_DCT_Loop_pr_U0">Loop_Col_DCT_Loop_pr, 0, 8, 549, 176</column>
+<column name="Loop_Row_DCT_Loop_pr_U0">Loop_Row_DCT_Loop_pr, 0, 8, 531, 220</column>
+<column name="Loop_Xpose_Col_Outer_U0">Loop_Xpose_Col_Outer, 0, 0, 30, 64</column>
+<column name="Loop_Xpose_Row_Outer_U0">Loop_Xpose_Row_Outer, 0, 0, 30, 64</column>
+<column name="read_data_U0">read_data, 0, 0, 33, 54</column>
+<column name="write_data_U0">write_data, 0, 0, 32, 62</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="buf_2d_in_0_U">dct_buf_2d_in_0, 0, 64, 4, 8, 16, 2, 256</column>
+<column name="buf_2d_in_1_U">dct_buf_2d_in_0, 0, 64, 4, 8, 16, 2, 256</column>
+<column name="buf_2d_in_2_U">dct_buf_2d_in_0, 0, 64, 4, 8, 16, 2, 256</column>
+<column name="buf_2d_in_3_U">dct_buf_2d_in_0, 0, 64, 4, 8, 16, 2, 256</column>
+<column name="buf_2d_in_4_U">dct_buf_2d_in_0, 0, 64, 4, 8, 16, 2, 256</column>
+<column name="buf_2d_in_5_U">dct_buf_2d_in_0, 0, 64, 4, 8, 16, 2, 256</column>
+<column name="buf_2d_in_6_U">dct_buf_2d_in_0, 0, 64, 4, 8, 16, 2, 256</column>
+<column name="buf_2d_in_7_U">dct_buf_2d_in_0, 0, 64, 4, 8, 16, 2, 256</column>
+<column name="col_inbuf_U">dct_col_inbuf, 2, 0, 0, 64, 16, 2, 2048</column>
+<column name="row_outbuf_i_U">dct_row_outbuf_i, 2, 0, 0, 64, 16, 2, 2048</column>
+<column name="col_outbuf_i_U">dct_row_outbuf_i, 2, 0, 0, 64, 16, 2, 2048</column>
+<column name="buf_2d_out_U">dct_row_outbuf_i, 2, 0, 0, 64, 16, 2, 2048</column>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="Loop_Row_DCT_Loop_pr_U0_ap_start">and, 0, 0, 1, 1, 1</column>
+<column name="ap_channel_done_buf_2d_in_0">and, 0, 0, 1, 1, 1</column>
+<column name="ap_channel_done_buf_2d_in_1">and, 0, 0, 1, 1, 1</column>
+<column name="ap_channel_done_buf_2d_in_2">and, 0, 0, 1, 1, 1</column>
+<column name="ap_channel_done_buf_2d_in_3">and, 0, 0, 1, 1, 1</column>
+<column name="ap_channel_done_buf_2d_in_4">and, 0, 0, 1, 1, 1</column>
+<column name="ap_channel_done_buf_2d_in_5">and, 0, 0, 1, 1, 1</column>
+<column name="ap_channel_done_buf_2d_in_6">and, 0, 0, 1, 1, 1</column>
+<column name="ap_channel_done_buf_2d_in_7">and, 0, 0, 1, 1, 1</column>
+<column name="ap_idle">and, 0, 0, 1, 1, 1</column>
+<column name="read_data_U0_ap_continue">and, 0, 0, 1, 1, 1</column>
+<column name="ap_sync_channel_write_buf_2d_in_0">or, 0, 0, 1, 1, 1</column>
+<column name="ap_sync_channel_write_buf_2d_in_1">or, 0, 0, 1, 1, 1</column>
+<column name="ap_sync_channel_write_buf_2d_in_2">or, 0, 0, 1, 1, 1</column>
+<column name="ap_sync_channel_write_buf_2d_in_3">or, 0, 0, 1, 1, 1</column>
+<column name="ap_sync_channel_write_buf_2d_in_4">or, 0, 0, 1, 1, 1</column>
+<column name="ap_sync_channel_write_buf_2d_in_5">or, 0, 0, 1, 1, 1</column>
+<column name="ap_sync_channel_write_buf_2d_in_6">or, 0, 0, 1, 1, 1</column>
+<column name="ap_sync_channel_write_buf_2d_in_7">or, 0, 0, 1, 1, 1</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_sync_reg_channel_write_buf_2d_in_0">1, 2, 1, 2</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_1">1, 2, 1, 2</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_2">1, 2, 1, 2</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_3">1, 2, 1, 2</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_4">1, 2, 1, 2</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_5">1, 2, 1, 2</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_6">1, 2, 1, 2</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_7">1, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_sync_reg_channel_write_buf_2d_in_0">1, 0, 1, 0</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_1">1, 0, 1, 0</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_2">1, 0, 1, 0</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_3">1, 0, 1, 0</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_4">1, 0, 1, 0</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_5">1, 0, 1, 0</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_6">1, 0, 1, 0</column>
+<column name="ap_sync_reg_channel_write_buf_2d_in_7">1, 0, 1, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, dct, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, dct, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, dct, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, dct, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, dct, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, dct, return value</column>
+<column name="input_r_address0">out, 6, ap_memory, input_r, array</column>
+<column name="input_r_ce0">out, 1, ap_memory, input_r, array</column>
+<column name="input_r_d0">out, 16, ap_memory, input_r, array</column>
+<column name="input_r_q0">in, 16, ap_memory, input_r, array</column>
+<column name="input_r_we0">out, 1, ap_memory, input_r, array</column>
+<column name="input_r_address1">out, 6, ap_memory, input_r, array</column>
+<column name="input_r_ce1">out, 1, ap_memory, input_r, array</column>
+<column name="input_r_d1">out, 16, ap_memory, input_r, array</column>
+<column name="input_r_q1">in, 16, ap_memory, input_r, array</column>
+<column name="input_r_we1">out, 1, ap_memory, input_r, array</column>
+<column name="output_r_address0">out, 6, ap_memory, output_r, array</column>
+<column name="output_r_ce0">out, 1, ap_memory, output_r, array</column>
+<column name="output_r_d0">out, 16, ap_memory, output_r, array</column>
+<column name="output_r_q0">in, 16, ap_memory, output_r, array</column>
+<column name="output_r_we0">out, 1, ap_memory, output_r, array</column>
+<column name="output_r_address1">out, 6, ap_memory, output_r, array</column>
+<column name="output_r_ce1">out, 1, ap_memory, output_r, array</column>
+<column name="output_r_d1">out, 16, ap_memory, output_r, array</column>
+<column name="output_r_q1">in, 16, ap_memory, output_r, array</column>
+<column name="output_r_we1">out, 1, ap_memory, output_r, array</column>
+</table>
+</item>
+</section>
+
+<section name = "Critical Path" level="0">
+<item name = "Max Delay">2.71</item>
+<item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
+<keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
+<column name="'row_outbuf_i'">alloca, 2.71, 2.71, -, -, -, -, -, -, -, -, -, -, -</column>
+</table>
+</item>
+</section>
+</profile>

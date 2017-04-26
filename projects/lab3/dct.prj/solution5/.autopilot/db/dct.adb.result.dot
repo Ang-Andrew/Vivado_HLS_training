@@ -1,0 +1,16 @@
+digraph ap_test {
+	graph [splines=ortho, rankdir=BT, size="500, 500"];
+	node [label="\N"];
+	graph [bb="0,0,126,612"];
+	1 [shape=box, fixedsize=true, width=1, height="0.25", pos="63,9"];
+	2 [shape=box, fixedsize=true, width=1, height="0.25", pos="63,603"];
+	32 [shape=box, fixedsize=true, width="1.75", height=2, pos="63,126"];
+	33 [shape=box, fixedsize=true, width="1.75", height=2, pos="63,306"];
+	34 [shape=box, fixedsize=true, width="1.75", height=2, pos="63,486"];
+	1 -> 32 [pos="e,63,53.744 63,18.181 63,18.181 63,43.744 63,43.744"];
+	34 -> 2 [pos="e,63,593.87 63,558.1 63,558.1 63,583.87 63,583.87"];
+	32 -> 33 [pos="e,63,233.81 63,198.18 63,198.18 63,223.81 63,223.81"];
+	33 -> 34 [pos="e,63,413.81 63,378.18 63,378.18 63,403.81 63,403.81"];
+}
+Warning: node '1', graph 'ap_test' size too small for label
+Warning: node '2', graph 'ap_test' size too small for label

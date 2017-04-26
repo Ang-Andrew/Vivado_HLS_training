@@ -1,0 +1,331 @@
+
+
+================================================================
+== Vivado HLS Report for 'Loop_Xpose_Row_Outer'
+================================================================
+* Date:           Wed Apr 26 22:39:31 2017
+
+* Version:        2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)
+* Project:        dct.prj
+* Solution:       solution7
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      7.68|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  130|  130|  130|  130|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                                             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |                  Loop Name                  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------------------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Xpose_Row_Outer_Loop_Xpose_Row_Inner_Loop  |  128|  128|         3|          2|          1|    64|    yes   |
+        +---------------------------------------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 5
+* Pipeline: 1
+  Pipeline-0: II = 2, D = 3, States = { 2 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	5  / (exitcond_flatten)
+	3  / (!exitcond_flatten)
+3 --> 
+	4  / true
+4 --> 
+	2  / true
+5 --> 
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: StgValue_6 (3)  [1/1] 1.57ns
+newFuncRoot:0  br label %0
+
+
+ <State 2>: 7.68ns
+ST_2: indvar_flatten (5)  [1/1] 0.00ns
+:0  %indvar_flatten = phi i7 [ 0, %newFuncRoot ], [ %indvar_flatten_next, %.preheader2.i ]
+
+ST_2: j_0_i (6)  [1/1] 0.00ns  loc: resource/lab3/dct.c:37->resource/lab3/dct.c:87
+:1  %j_0_i = phi i4 [ 0, %newFuncRoot ], [ %j_0_i_cast8_mid2_v, %.preheader2.i ]
+
+ST_2: i_1_i (7)  [1/1] 0.00ns
+:2  %i_1_i = phi i4 [ 0, %newFuncRoot ], [ %i, %.preheader2.i ]
+
+ST_2: exitcond_flatten (8)  [1/1] 1.97ns
+:3  %exitcond_flatten = icmp eq i7 %indvar_flatten, -64
+
+ST_2: indvar_flatten_next (9)  [1/1] 1.72ns
+:4  %indvar_flatten_next = add i7 %indvar_flatten, 1
+
+ST_2: StgValue_12 (10)  [1/1] 0.00ns
+:5  br i1 %exitcond_flatten, label %.preheader1.i.exitStub, label %.preheader2.i
+
+ST_2: j (12)  [1/1] 0.80ns  loc: resource/lab3/dct.c:37->resource/lab3/dct.c:87
+.preheader2.i:0  %j = add i4 1, %j_0_i
+
+ST_2: tmp_s (15)  [1/1] 1.88ns  loc: resource/lab3/dct.c:39->resource/lab3/dct.c:87
+.preheader2.i:3  %tmp_s = icmp eq i4 %i_1_i, -8
+
+ST_2: i_1_i_mid2 (16)  [1/1] 1.37ns  loc: resource/lab3/dct.c:39->resource/lab3/dct.c:87
+.preheader2.i:4  %i_1_i_mid2 = select i1 %tmp_s, i4 0, i4 %i_1_i
+
+ST_2: j_0_i_cast8_mid2_v (17)  [1/1] 1.37ns  loc: resource/lab3/dct.c:37->resource/lab3/dct.c:87
+.preheader2.i:5  %j_0_i_cast8_mid2_v = select i1 %tmp_s, i4 %j, i4 %j_0_i
+
+ST_2: j_0_i_cast8_mid2 (18)  [1/1] 0.00ns  loc: resource/lab3/dct.c:37->resource/lab3/dct.c:87
+.preheader2.i:6  %j_0_i_cast8_mid2 = zext i4 %j_0_i_cast8_mid2_v to i32
+
+ST_2: j_0_i_cast8_mid2_cas (19)  [1/1] 0.00ns  loc: resource/lab3/dct.c:37->resource/lab3/dct.c:87
+.preheader2.i:7  %j_0_i_cast8_mid2_cas = zext i4 %j_0_i_cast8_mid2_v to i8
+
+ST_2: tmp (20)  [1/1] 0.00ns  loc: resource/lab3/dct.c:39->resource/lab3/dct.c:87
+.preheader2.i:8  %tmp = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %i_1_i_mid2, i3 0)
+
+ST_2: tmp_7_cast (21)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:9  %tmp_7_cast = zext i7 %tmp to i8
+
+ST_2: tmp_8 (22)  [1/1] 1.72ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:10  %tmp_8 = add i8 %tmp_7_cast, %j_0_i_cast8_mid2_cas
+
+ST_2: tmp_8_cast (23)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:11  %tmp_8_cast = zext i8 %tmp_8 to i32
+
+ST_2: row_outbuf_i_addr (24)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:12  %row_outbuf_i_addr = getelementptr [64 x i16]* %row_outbuf_i, i32 0, i32 %tmp_8_cast
+
+ST_2: row_outbuf_i_load (28)  [2/2] 2.71ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:16  %row_outbuf_i_load = load i16* %row_outbuf_i_addr, align 2
+
+ST_2: col_inbuf_addr (29)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:17  %col_inbuf_addr = getelementptr [8 x i128]* %col_inbuf, i32 0, i32 %j_0_i_cast8_mid2
+
+ST_2: tmp_27 (31)  [1/1] 0.00ns  loc: resource/lab3/dct.c:39->resource/lab3/dct.c:87
+.preheader2.i:19  %tmp_27 = trunc i4 %i_1_i_mid2 to i3
+
+ST_2: i (58)  [1/1] 0.80ns  loc: resource/lab3/dct.c:39->resource/lab3/dct.c:87
+.preheader2.i:46  %i = add i4 1, %i_1_i_mid2
+
+
+ <State 3>: 5.47ns
+ST_3: row_outbuf_i_load (28)  [1/2] 2.71ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:16  %row_outbuf_i_load = load i16* %row_outbuf_i_addr, align 2
+
+ST_3: col_inbuf_load (30)  [2/2] 2.71ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:18  %col_inbuf_load = load i128* %col_inbuf_addr, align 8
+
+ST_3: tmp_3 (32)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:20  %tmp_3 = call i7 @_ssdm_op_BitConcatenate.i7.i3.i4(i3 %tmp_27, i4 0)
+
+ST_3: tmp_4 (33)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:21  %tmp_4 = or i7 %tmp_3, 15
+
+ST_3: tmp_28 (34)  [1/1] 1.97ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:22  %tmp_28 = icmp ugt i7 %tmp_3, %tmp_4
+
+ST_3: tmp_29 (35)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:23  %tmp_29 = zext i7 %tmp_3 to i8
+
+ST_3: tmp_31 (37)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node tmp_40)
+.preheader2.i:25  %tmp_31 = zext i16 %row_outbuf_i_load to i128
+
+ST_3: tmp_32 (38)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node tmp_40)
+.preheader2.i:26  %tmp_32 = xor i8 %tmp_29, 127
+
+ST_3: tmp_35 (41)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node tmp_40)
+.preheader2.i:29  %tmp_35 = select i1 %tmp_28, i8 %tmp_32, i8 %tmp_29
+
+ST_3: tmp_37 (43)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node tmp_40)
+.preheader2.i:31  %tmp_37 = zext i8 %tmp_35 to i128
+
+ST_3: tmp_40 (46)  [1/1] 2.76ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (out node of the LUT)
+.preheader2.i:34  %tmp_40 = shl i128 %tmp_31, %tmp_37
+
+
+ <State 4>: 6.79ns
+ST_4: StgValue_39 (13)  [1/1] 0.00ns
+.preheader2.i:1  call void (...)* @_ssdm_op_SpecLoopName([42 x i8]* @Xpose_Row_Outer_Loop)
+
+ST_4: empty (14)  [1/1] 0.00ns
+.preheader2.i:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64) nounwind
+
+ST_4: StgValue_41 (25)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:13  call void (...)* @_ssdm_op_SpecLoopName([21 x i8]* @p_str6) nounwind
+
+ST_4: tmp_2 (26)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:14  %tmp_2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([21 x i8]* @p_str6) nounwind
+
+ST_4: StgValue_43 (27)  [1/1] 0.00ns  loc: resource/lab3/dct.c:41->resource/lab3/dct.c:87
+.preheader2.i:15  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_4: col_inbuf_load (30)  [1/2] 2.71ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:18  %col_inbuf_load = load i128* %col_inbuf_addr, align 8
+
+ST_4: tmp_30 (36)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:24  %tmp_30 = zext i7 %tmp_4 to i8
+
+ST_4: tmp_33 (39)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node p_demorgan)
+.preheader2.i:27  %tmp_33 = select i1 %tmp_28, i8 %tmp_29, i8 %tmp_30
+
+ST_4: tmp_34 (40)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node p_demorgan)
+.preheader2.i:28  %tmp_34 = select i1 %tmp_28, i8 %tmp_30, i8 %tmp_29
+
+ST_4: tmp_36 (42)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node p_demorgan)
+.preheader2.i:30  %tmp_36 = xor i8 %tmp_33, 127
+
+ST_4: tmp_38 (44)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node p_demorgan)
+.preheader2.i:32  %tmp_38 = zext i8 %tmp_34 to i128
+
+ST_4: tmp_39 (45)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node p_demorgan)
+.preheader2.i:33  %tmp_39 = zext i8 %tmp_36 to i128
+
+ST_4: tmp_41 (47)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node tmp_48)
+.preheader2.i:35  %tmp_41 = call i128 @llvm.part.select.i128(i128 %tmp_40, i32 127, i32 0)
+
+ST_4: tmp_42 (48)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node tmp_48)
+.preheader2.i:36  %tmp_42 = select i1 %tmp_28, i128 %tmp_41, i128 %tmp_40
+
+ST_4: tmp_43 (49)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node p_demorgan)
+.preheader2.i:37  %tmp_43 = shl i128 -1, %tmp_38
+
+ST_4: tmp_44 (50)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node p_demorgan)
+.preheader2.i:38  %tmp_44 = lshr i128 -1, %tmp_39
+
+ST_4: p_demorgan (51)  [1/1] 1.37ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (out node of the LUT)
+.preheader2.i:39  %p_demorgan = and i128 %tmp_43, %tmp_44
+
+ST_4: tmp_45 (52)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node tmp_48)
+.preheader2.i:40  %tmp_45 = xor i128 %p_demorgan, -1
+
+ST_4: tmp_46 (53)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node tmp_48)
+.preheader2.i:41  %tmp_46 = and i128 %col_inbuf_load, %tmp_45
+
+ST_4: tmp_47 (54)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (grouped into LUT with out node tmp_48)
+.preheader2.i:42  %tmp_47 = and i128 %tmp_42, %p_demorgan
+
+ST_4: tmp_48 (55)  [1/1] 1.37ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87 (out node of the LUT)
+.preheader2.i:43  %tmp_48 = or i128 %tmp_46, %tmp_47
+
+ST_4: StgValue_60 (56)  [1/1] 2.71ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:44  store i128 %tmp_48, i128* %col_inbuf_addr, align 8
+
+ST_4: empty_26 (57)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40->resource/lab3/dct.c:87
+.preheader2.i:45  %empty_26 = call i32 (...)* @_ssdm_op_SpecRegionEnd([21 x i8]* @p_str6, i32 %tmp_2) nounwind
+
+ST_4: StgValue_62 (59)  [1/1] 0.00ns
+.preheader2.i:47  br label %0
+
+
+ <State 5>: 0.00ns
+ST_5: StgValue_63 (61)  [1/1] 0.00ns
+.preheader1.i.exitStub:0  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('indvar_flatten') with incoming values : ('indvar_flatten_next') [5]  (1.57 ns)
+
+ <State 2>: 7.68ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', resource/lab3/dct.c:39->resource/lab3/dct.c:87) [7]  (0 ns)
+	'icmp' operation ('tmp_s', resource/lab3/dct.c:39->resource/lab3/dct.c:87) [15]  (1.88 ns)
+	'select' operation ('i_1_i_mid2', resource/lab3/dct.c:39->resource/lab3/dct.c:87) [16]  (1.37 ns)
+	'add' operation ('tmp_8', resource/lab3/dct.c:40->resource/lab3/dct.c:87) [22]  (1.72 ns)
+	'getelementptr' operation ('row_outbuf_i_addr', resource/lab3/dct.c:40->resource/lab3/dct.c:87) [24]  (0 ns)
+	'load' operation ('row_outbuf_i_load', resource/lab3/dct.c:40->resource/lab3/dct.c:87) on array 'row_outbuf_i' [28]  (2.71 ns)
+
+ <State 3>: 5.47ns
+The critical path consists of the following:
+	'load' operation ('row_outbuf_i_load', resource/lab3/dct.c:40->resource/lab3/dct.c:87) on array 'row_outbuf_i' [28]  (2.71 ns)
+	'shl' operation ('tmp_40', resource/lab3/dct.c:40->resource/lab3/dct.c:87) [46]  (2.76 ns)
+
+ <State 4>: 6.79ns
+The critical path consists of the following:
+	'load' operation ('col_inbuf_load', resource/lab3/dct.c:40->resource/lab3/dct.c:87) on array 'col_inbuf' [30]  (2.71 ns)
+	'and' operation ('tmp_46', resource/lab3/dct.c:40->resource/lab3/dct.c:87) [53]  (0 ns)
+	'or' operation ('tmp_48', resource/lab3/dct.c:40->resource/lab3/dct.c:87) [55]  (1.37 ns)
+	'store' operation (resource/lab3/dct.c:40->resource/lab3/dct.c:87) of variable 'tmp_48', resource/lab3/dct.c:40->resource/lab3/dct.c:87 on array 'col_inbuf' [56]  (2.71 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

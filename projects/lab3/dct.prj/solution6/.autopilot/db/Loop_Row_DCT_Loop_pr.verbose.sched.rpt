@@ -1,0 +1,160 @@
+
+
+================================================================
+== Vivado HLS Report for 'Loop_Row_DCT_Loop_pr'
+================================================================
+* Date:           Wed Apr 26 22:35:36 2017
+
+* Version:        2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)
+* Project:        dct.prj
+* Solution:       solution6
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      9.40|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  305|  305|  305|  305|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name   | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Row_DCT_Loop  |  304|  304|        38|          -|          -|     8|    no    |
+        +----------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 3
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!tmp)
+3 --> 
+	2  / true
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: StgValue_4 (18)  [1/1] 1.57ns  loc: resource/lab3/dct.c:32->resource/lab3/dct.c:87
+newFuncRoot:0  br label %0
+
+
+ <State 2>: 1.88ns
+ST_2: i_0_i (20)  [1/1] 0.00ns
+:0  %i_0_i = phi i4 [ 0, %newFuncRoot ], [ %i, %1 ]
+
+ST_2: tmp (21)  [1/1] 1.88ns  loc: resource/lab3/dct.c:32->resource/lab3/dct.c:87
+:1  %tmp = icmp eq i4 %i_0_i, -8
+
+ST_2: empty (22)  [1/1] 0.00ns
+:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8) nounwind
+
+ST_2: i (23)  [1/1] 0.80ns  loc: resource/lab3/dct.c:32->resource/lab3/dct.c:87
+:3  %i = add i4 %i_0_i, 1
+
+ST_2: StgValue_9 (24)  [1/1] 0.00ns  loc: resource/lab3/dct.c:32->resource/lab3/dct.c:87
+:4  br i1 %tmp, label %.preheader2.i.exitStub, label %1
+
+ST_2: StgValue_10 (27)  [2/2] 0.00ns  loc: resource/lab3/dct.c:33->resource/lab3/dct.c:87
+:1  call fastcc void @dct_1d.1([8 x i16]* %buf_2d_in_0, [8 x i16]* %buf_2d_in_1, [8 x i16]* %buf_2d_in_2, [8 x i16]* %buf_2d_in_3, [8 x i16]* %buf_2d_in_4, [8 x i16]* %buf_2d_in_5, [8 x i16]* %buf_2d_in_6, [8 x i16]* %buf_2d_in_7, i4 %i_0_i, [64 x i16]* %row_outbuf_i, i4 %i_0_i) nounwind
+
+ST_2: StgValue_11 (30)  [1/1] 0.00ns
+.preheader2.i.exitStub:0  ret void
+
+
+ <State 3>: 0.00ns
+ST_3: StgValue_12 (26)  [1/1] 0.00ns  loc: resource/lab3/dct.c:32->resource/lab3/dct.c:87
+:0  call void (...)* @_ssdm_op_SpecLoopName([13 x i8]* @p_str3) nounwind
+
+ST_3: StgValue_13 (27)  [1/2] 0.00ns  loc: resource/lab3/dct.c:33->resource/lab3/dct.c:87
+:1  call fastcc void @dct_1d.1([8 x i16]* %buf_2d_in_0, [8 x i16]* %buf_2d_in_1, [8 x i16]* %buf_2d_in_2, [8 x i16]* %buf_2d_in_3, [8 x i16]* %buf_2d_in_4, [8 x i16]* %buf_2d_in_5, [8 x i16]* %buf_2d_in_6, [8 x i16]* %buf_2d_in_7, i4 %i_0_i, [64 x i16]* %row_outbuf_i, i4 %i_0_i) nounwind
+
+ST_3: StgValue_14 (28)  [1/1] 0.00ns  loc: resource/lab3/dct.c:32->resource/lab3/dct.c:87
+:2  br label %0
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', resource/lab3/dct.c:32->resource/lab3/dct.c:87) [20]  (1.57 ns)
+
+ <State 2>: 1.88ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', resource/lab3/dct.c:32->resource/lab3/dct.c:87) [20]  (0 ns)
+	'icmp' operation ('tmp', resource/lab3/dct.c:32->resource/lab3/dct.c:87) [21]  (1.88 ns)
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

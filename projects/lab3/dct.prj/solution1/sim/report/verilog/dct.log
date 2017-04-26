@@ -1,0 +1,113 @@
+@I [SIM-47] Using XSIM for RTL simulation.
+@I [SIM-14] Instrumenting C test bench ...
+   Build using "D:/Programs/Vivado/Vivado_HLS/2016.3/msys/bin/g++.exe"
+   Compiling apatb_dct.cpp
+   Compiling (apcc) dct.c_pre.c.tb.c
+INFO: [HLS 200-10] Running 'd:/Programs/Vivado/Vivado_HLS/2016.3/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'Andrew' on host 'andrewpc' (Windows NT_amd64 version 6.2) on Wed Apr 26 22:07:13 +1200 2017
+INFO: [HLS 200-10] In directory 'C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling (apcc) dct_test.c_pre.c.tb.c
+INFO: [HLS 200-10] Running 'd:/Programs/Vivado/Vivado_HLS/2016.3/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'Andrew' on host 'andrewpc' (Windows NT_amd64 version 6.2) on Wed Apr 26 22:07:15 +1200 2017
+INFO: [HLS 200-10] In directory 'C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating cosim.tv.exe
+@I [SIM-302] Starting C TB testing ... 
+@I [SIM-333] Generating C post check test bench ...
+@I [SIM-12] Generating RTL test bench ...
+@I [SIM-323] Starting verilog simulation. 
+@I [SIM-15] Starting XSIM ...
+@I [SIM-316] Starting C post checking ...
+    *** *** *** *** 
+    Results are good 
+    *** *** *** *** 
+
+C:\Users\Andrew\Documents\Vivado_projects\HLS_Xilinx_university_program\projects\lab3\dct.prj\solution1\sim\verilog>call xelab xil_defaultlib.apatb_dct_top -prj dct.prj --initfile "D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini" --lib "ieee_proposed=./ieee_proposed" -s dct  
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2016.3
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: D:/Programs/Vivado/Vivado/2016.3/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_dct_top -prj dct.prj --initfile D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s dct 
+Multi-threading is on. Using 2 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/verilog/AESL_automem_input_r.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_input_r
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/verilog/AESL_automem_output_r.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_output_r
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/verilog/dct.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_dct_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/verilog/dct.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dct
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/verilog/dct_1d2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dct_1d2
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/verilog/dct_1d2_dct_coeffbkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dct_1d2_dct_coeffbkb_rom
+INFO: [VRFC 10-311] analyzing module dct_1d2_dct_coeffbkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/verilog/dct_2d.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dct_2d
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/verilog/dct_2d_row_outbuf.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dct_2d_row_outbuf_ram
+INFO: [VRFC 10-311] analyzing module dct_2d_row_outbuf
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/verilog/dct_mac_muladd_15cud.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dct_mac_muladd_15cud_DSP48_0
+INFO: [VRFC 10-311] analyzing module dct_mac_muladd_15cud
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.dct_2d_row_outbuf_ram
+Compiling module xil_defaultlib.dct_2d_row_outbuf(DataWidth=16,A...
+Compiling module xil_defaultlib.dct_1d2_dct_coeffbkb_rom
+Compiling module xil_defaultlib.dct_1d2_dct_coeffbkb(DataWidth=1...
+Compiling module xil_defaultlib.dct_mac_muladd_15cud_DSP48_0
+Compiling module xil_defaultlib.dct_mac_muladd_15cud(ID=1,NUM_ST...
+Compiling module xil_defaultlib.dct_1d2
+Compiling module xil_defaultlib.dct_2d
+Compiling module xil_defaultlib.dct
+Compiling module xil_defaultlib.AESL_automem_input_r
+Compiling module xil_defaultlib.AESL_automem_output_r
+Compiling module xil_defaultlib.apatb_dct_top
+Built simulation snapshot dct
+
+****** Webtalk v2016.3 (64-bit)
+  **** SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
+  **** IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/verilog/xsim.dir/dct/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/verilog/xsim.dir/dct/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Wed Apr 26 22:07:35 2017. For additional details about this file, please refer to the WebTalk help file at D:/Programs/Vivado/Vivado/2016.3/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Wed Apr 26 22:07:35 2017...
+
+****** xsim v2016.3 (64-bit)
+  **** SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
+  **** IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/dct/xsim_script.tcl
+# xsim {dct} -autoloadwcfg -tclbatch {dct.tcl}
+Vivado Simulator 2016.3
+Time resolution is 1 ps
+source dct.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "125000"
+// RTL Simulation : 1 / 1 [0.00%] @ "39735000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 39775 ns : File "C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab3/dct.prj/solution1/sim/verilog/dct.autotb.v" Line 268
+## quit
+INFO: [Common 17-206] Exiting xsim at Wed Apr 26 22:07:49 2017...
+    *** *** *** *** 
+    Results are good 
+    *** *** *** *** 
+@I [SIM-1000] *** C/RTL co-simulation finished: PASS ***

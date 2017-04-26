@@ -1,0 +1,1831 @@
+
+
+================================================================
+== Vivado HLS Report for 'dct_2d'
+================================================================
+* Date:           Wed Apr 26 22:26:32 2017
+
+* Version:        2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)
+* Project:        dct.prj
+* Solution:       solution4
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     10.79|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  537|  537|  537|  537|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                                             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |                  Loop Name                  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------------------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Row_DCT_Loop_DCT_Outer_Loop                |  258|  258|         7|          4|          1|    64|    yes   |
+        |- Xpose_Row_Outer_Loop_Xpose_Row_Inner_Loop  |   64|   64|         2|          1|          1|    64|    yes   |
+        |- Col_DCT_Loop                               |  144|  144|        18|          -|          -|     8|    no    |
+        | + DCT_Outer_Loop                            |   11|   11|         5|          1|          1|     8|    yes   |
+        |- Xpose_Col_Outer_Loop_Xpose_Col_Inner_Loop  |   64|   64|         2|          1|          1|    64|    yes   |
+        +---------------------------------------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 4, depth = 7
+  * Pipeline-1: initiation interval (II) = 1, depth = 2
+  * Pipeline-2: initiation interval (II) = 1, depth = 5
+  * Pipeline-3: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 26
+* Pipeline: 4
+  Pipeline-0: II = 4, D = 7, States = { 2 3 4 5 6 7 8 }
+  Pipeline-1: II = 1, D = 2, States = { 10 11 }
+  Pipeline-2: II = 1, D = 5, States = { 18 19 20 21 22 }
+  Pipeline-3: II = 1, D = 2, States = { 24 25 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	9  / (exitcond_flatten)
+	3  / (!exitcond_flatten)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	2  / true
+9 --> 
+	10  / true
+10 --> 
+	12  / (exitcond_flatten9)
+	11  / (!exitcond_flatten9)
+11 --> 
+	10  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / (!tmp_9)
+	24  / (tmp_9)
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	23  / (tmp_i2)
+	19  / (!tmp_i2)
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	18  / true
+23 --> 
+	13  / true
+24 --> 
+	26  / (exitcond_flatten1)
+	25  / (!exitcond_flatten1)
+25 --> 
+	24  / true
+26 --> 
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: dst_assign (18)  [1/1] 0.00ns
+:0  %dst_assign = alloca [64 x i16], align 2
+
+ST_1: dst_assign_1 (19)  [1/1] 0.00ns
+:1  %dst_assign_1 = alloca [64 x i16], align 2
+
+ST_1: col_inbuf (20)  [1/1] 0.00ns  loc: resource/lab3/dct.c:27
+:2  %col_inbuf = alloca [64 x i16], align 2
+
+ST_1: in_block_0_addr (21)  [1/1] 0.00ns
+:3  %in_block_0_addr = getelementptr [8 x i16]* %in_block_0, i32 0, i32 0
+
+ST_1: in_block_1_addr (22)  [1/1] 0.00ns
+:4  %in_block_1_addr = getelementptr [8 x i16]* %in_block_1, i32 0, i32 0
+
+ST_1: in_block_2_addr (23)  [1/1] 0.00ns
+:5  %in_block_2_addr = getelementptr [8 x i16]* %in_block_2, i32 0, i32 0
+
+ST_1: in_block_3_addr (24)  [1/1] 0.00ns
+:6  %in_block_3_addr = getelementptr [8 x i16]* %in_block_3, i32 0, i32 0
+
+ST_1: in_block_4_addr (25)  [1/1] 0.00ns
+:7  %in_block_4_addr = getelementptr [8 x i16]* %in_block_4, i32 0, i32 0
+
+ST_1: in_block_5_addr (26)  [1/1] 0.00ns
+:8  %in_block_5_addr = getelementptr [8 x i16]* %in_block_5, i32 0, i32 0
+
+ST_1: in_block_6_addr (27)  [1/1] 0.00ns
+:9  %in_block_6_addr = getelementptr [8 x i16]* %in_block_6, i32 0, i32 0
+
+ST_1: in_block_7_addr (28)  [1/1] 0.00ns
+:10  %in_block_7_addr = getelementptr [8 x i16]* %in_block_7, i32 0, i32 0
+
+ST_1: in_block_0_addr_1 (29)  [1/1] 0.00ns
+:11  %in_block_0_addr_1 = getelementptr [8 x i16]* %in_block_0, i32 0, i32 1
+
+ST_1: in_block_1_addr_1 (30)  [1/1] 0.00ns
+:12  %in_block_1_addr_1 = getelementptr [8 x i16]* %in_block_1, i32 0, i32 1
+
+ST_1: in_block_2_addr_1 (31)  [1/1] 0.00ns
+:13  %in_block_2_addr_1 = getelementptr [8 x i16]* %in_block_2, i32 0, i32 1
+
+ST_1: in_block_3_addr_1 (32)  [1/1] 0.00ns
+:14  %in_block_3_addr_1 = getelementptr [8 x i16]* %in_block_3, i32 0, i32 1
+
+ST_1: in_block_4_addr_1 (33)  [1/1] 0.00ns
+:15  %in_block_4_addr_1 = getelementptr [8 x i16]* %in_block_4, i32 0, i32 1
+
+ST_1: in_block_5_addr_1 (34)  [1/1] 0.00ns
+:16  %in_block_5_addr_1 = getelementptr [8 x i16]* %in_block_5, i32 0, i32 1
+
+ST_1: in_block_6_addr_1 (35)  [1/1] 0.00ns
+:17  %in_block_6_addr_1 = getelementptr [8 x i16]* %in_block_6, i32 0, i32 1
+
+ST_1: in_block_7_addr_1 (36)  [1/1] 0.00ns
+:18  %in_block_7_addr_1 = getelementptr [8 x i16]* %in_block_7, i32 0, i32 1
+
+ST_1: in_block_0_addr_2 (37)  [1/1] 0.00ns
+:19  %in_block_0_addr_2 = getelementptr [8 x i16]* %in_block_0, i32 0, i32 2
+
+ST_1: in_block_1_addr_2 (38)  [1/1] 0.00ns
+:20  %in_block_1_addr_2 = getelementptr [8 x i16]* %in_block_1, i32 0, i32 2
+
+ST_1: in_block_2_addr_2 (39)  [1/1] 0.00ns
+:21  %in_block_2_addr_2 = getelementptr [8 x i16]* %in_block_2, i32 0, i32 2
+
+ST_1: in_block_3_addr_2 (40)  [1/1] 0.00ns
+:22  %in_block_3_addr_2 = getelementptr [8 x i16]* %in_block_3, i32 0, i32 2
+
+ST_1: in_block_4_addr_2 (41)  [1/1] 0.00ns
+:23  %in_block_4_addr_2 = getelementptr [8 x i16]* %in_block_4, i32 0, i32 2
+
+ST_1: in_block_5_addr_2 (42)  [1/1] 0.00ns
+:24  %in_block_5_addr_2 = getelementptr [8 x i16]* %in_block_5, i32 0, i32 2
+
+ST_1: in_block_6_addr_2 (43)  [1/1] 0.00ns
+:25  %in_block_6_addr_2 = getelementptr [8 x i16]* %in_block_6, i32 0, i32 2
+
+ST_1: in_block_7_addr_2 (44)  [1/1] 0.00ns
+:26  %in_block_7_addr_2 = getelementptr [8 x i16]* %in_block_7, i32 0, i32 2
+
+ST_1: in_block_0_addr_3 (45)  [1/1] 0.00ns
+:27  %in_block_0_addr_3 = getelementptr [8 x i16]* %in_block_0, i32 0, i32 3
+
+ST_1: in_block_1_addr_3 (46)  [1/1] 0.00ns
+:28  %in_block_1_addr_3 = getelementptr [8 x i16]* %in_block_1, i32 0, i32 3
+
+ST_1: in_block_2_addr_3 (47)  [1/1] 0.00ns
+:29  %in_block_2_addr_3 = getelementptr [8 x i16]* %in_block_2, i32 0, i32 3
+
+ST_1: in_block_3_addr_3 (48)  [1/1] 0.00ns
+:30  %in_block_3_addr_3 = getelementptr [8 x i16]* %in_block_3, i32 0, i32 3
+
+ST_1: in_block_4_addr_3 (49)  [1/1] 0.00ns
+:31  %in_block_4_addr_3 = getelementptr [8 x i16]* %in_block_4, i32 0, i32 3
+
+ST_1: in_block_5_addr_3 (50)  [1/1] 0.00ns
+:32  %in_block_5_addr_3 = getelementptr [8 x i16]* %in_block_5, i32 0, i32 3
+
+ST_1: in_block_6_addr_3 (51)  [1/1] 0.00ns
+:33  %in_block_6_addr_3 = getelementptr [8 x i16]* %in_block_6, i32 0, i32 3
+
+ST_1: in_block_7_addr_3 (52)  [1/1] 0.00ns
+:34  %in_block_7_addr_3 = getelementptr [8 x i16]* %in_block_7, i32 0, i32 3
+
+ST_1: in_block_0_addr_4 (53)  [1/1] 0.00ns
+:35  %in_block_0_addr_4 = getelementptr [8 x i16]* %in_block_0, i32 0, i32 4
+
+ST_1: in_block_1_addr_4 (54)  [1/1] 0.00ns
+:36  %in_block_1_addr_4 = getelementptr [8 x i16]* %in_block_1, i32 0, i32 4
+
+ST_1: in_block_2_addr_4 (55)  [1/1] 0.00ns
+:37  %in_block_2_addr_4 = getelementptr [8 x i16]* %in_block_2, i32 0, i32 4
+
+ST_1: in_block_3_addr_4 (56)  [1/1] 0.00ns
+:38  %in_block_3_addr_4 = getelementptr [8 x i16]* %in_block_3, i32 0, i32 4
+
+ST_1: in_block_4_addr_4 (57)  [1/1] 0.00ns
+:39  %in_block_4_addr_4 = getelementptr [8 x i16]* %in_block_4, i32 0, i32 4
+
+ST_1: in_block_5_addr_4 (58)  [1/1] 0.00ns
+:40  %in_block_5_addr_4 = getelementptr [8 x i16]* %in_block_5, i32 0, i32 4
+
+ST_1: in_block_6_addr_4 (59)  [1/1] 0.00ns
+:41  %in_block_6_addr_4 = getelementptr [8 x i16]* %in_block_6, i32 0, i32 4
+
+ST_1: in_block_7_addr_4 (60)  [1/1] 0.00ns
+:42  %in_block_7_addr_4 = getelementptr [8 x i16]* %in_block_7, i32 0, i32 4
+
+ST_1: in_block_0_addr_5 (61)  [1/1] 0.00ns
+:43  %in_block_0_addr_5 = getelementptr [8 x i16]* %in_block_0, i32 0, i32 5
+
+ST_1: in_block_1_addr_5 (62)  [1/1] 0.00ns
+:44  %in_block_1_addr_5 = getelementptr [8 x i16]* %in_block_1, i32 0, i32 5
+
+ST_1: in_block_2_addr_5 (63)  [1/1] 0.00ns
+:45  %in_block_2_addr_5 = getelementptr [8 x i16]* %in_block_2, i32 0, i32 5
+
+ST_1: in_block_3_addr_5 (64)  [1/1] 0.00ns
+:46  %in_block_3_addr_5 = getelementptr [8 x i16]* %in_block_3, i32 0, i32 5
+
+ST_1: in_block_4_addr_5 (65)  [1/1] 0.00ns
+:47  %in_block_4_addr_5 = getelementptr [8 x i16]* %in_block_4, i32 0, i32 5
+
+ST_1: in_block_5_addr_5 (66)  [1/1] 0.00ns
+:48  %in_block_5_addr_5 = getelementptr [8 x i16]* %in_block_5, i32 0, i32 5
+
+ST_1: in_block_6_addr_5 (67)  [1/1] 0.00ns
+:49  %in_block_6_addr_5 = getelementptr [8 x i16]* %in_block_6, i32 0, i32 5
+
+ST_1: in_block_7_addr_5 (68)  [1/1] 0.00ns
+:50  %in_block_7_addr_5 = getelementptr [8 x i16]* %in_block_7, i32 0, i32 5
+
+ST_1: in_block_0_addr_6 (69)  [1/1] 0.00ns
+:51  %in_block_0_addr_6 = getelementptr [8 x i16]* %in_block_0, i32 0, i32 6
+
+ST_1: in_block_1_addr_6 (70)  [1/1] 0.00ns
+:52  %in_block_1_addr_6 = getelementptr [8 x i16]* %in_block_1, i32 0, i32 6
+
+ST_1: in_block_2_addr_6 (71)  [1/1] 0.00ns
+:53  %in_block_2_addr_6 = getelementptr [8 x i16]* %in_block_2, i32 0, i32 6
+
+ST_1: in_block_3_addr_6 (72)  [1/1] 0.00ns
+:54  %in_block_3_addr_6 = getelementptr [8 x i16]* %in_block_3, i32 0, i32 6
+
+ST_1: in_block_4_addr_6 (73)  [1/1] 0.00ns
+:55  %in_block_4_addr_6 = getelementptr [8 x i16]* %in_block_4, i32 0, i32 6
+
+ST_1: in_block_5_addr_6 (74)  [1/1] 0.00ns
+:56  %in_block_5_addr_6 = getelementptr [8 x i16]* %in_block_5, i32 0, i32 6
+
+ST_1: in_block_6_addr_6 (75)  [1/1] 0.00ns
+:57  %in_block_6_addr_6 = getelementptr [8 x i16]* %in_block_6, i32 0, i32 6
+
+ST_1: in_block_7_addr_6 (76)  [1/1] 0.00ns
+:58  %in_block_7_addr_6 = getelementptr [8 x i16]* %in_block_7, i32 0, i32 6
+
+ST_1: in_block_0_addr_7 (77)  [1/1] 0.00ns
+:59  %in_block_0_addr_7 = getelementptr [8 x i16]* %in_block_0, i32 0, i32 7
+
+ST_1: in_block_1_addr_7 (78)  [1/1] 0.00ns
+:60  %in_block_1_addr_7 = getelementptr [8 x i16]* %in_block_1, i32 0, i32 7
+
+ST_1: in_block_2_addr_7 (79)  [1/1] 0.00ns
+:61  %in_block_2_addr_7 = getelementptr [8 x i16]* %in_block_2, i32 0, i32 7
+
+ST_1: in_block_3_addr_7 (80)  [1/1] 0.00ns
+:62  %in_block_3_addr_7 = getelementptr [8 x i16]* %in_block_3, i32 0, i32 7
+
+ST_1: in_block_4_addr_7 (81)  [1/1] 0.00ns
+:63  %in_block_4_addr_7 = getelementptr [8 x i16]* %in_block_4, i32 0, i32 7
+
+ST_1: in_block_5_addr_7 (82)  [1/1] 0.00ns
+:64  %in_block_5_addr_7 = getelementptr [8 x i16]* %in_block_5, i32 0, i32 7
+
+ST_1: in_block_6_addr_7 (83)  [1/1] 0.00ns
+:65  %in_block_6_addr_7 = getelementptr [8 x i16]* %in_block_6, i32 0, i32 7
+
+ST_1: in_block_7_addr_7 (84)  [1/1] 0.00ns
+:66  %in_block_7_addr_7 = getelementptr [8 x i16]* %in_block_7, i32 0, i32 7
+
+ST_1: StgValue_94 (85)  [1/1] 1.57ns  loc: resource/lab3/dct.c:32
+:67  br label %1
+
+
+ <State 2>: 5.64ns
+ST_2: indvar_flatten (87)  [1/1] 0.00ns
+:0  %indvar_flatten = phi i7 [ 0, %0 ], [ %indvar_flatten_next, %dct_1d.1.exit ]
+
+ST_2: i (88)  [1/1] 0.00ns  loc: resource/lab3/dct.c:32
+:1  %i = phi i4 [ 0, %0 ], [ %i_cast_mid2_v, %dct_1d.1.exit ]
+
+ST_2: k_i (89)  [1/1] 0.00ns
+:2  %k_i = phi i4 [ 0, %0 ], [ %k, %dct_1d.1.exit ]
+
+ST_2: exitcond_flatten (90)  [1/1] 1.97ns
+:3  %exitcond_flatten = icmp eq i7 %indvar_flatten, -64
+
+ST_2: indvar_flatten_next (91)  [1/1] 1.72ns
+:4  %indvar_flatten_next = add i7 %indvar_flatten, 1
+
+ST_2: StgValue_100 (92)  [1/1] 0.00ns
+:5  br i1 %exitcond_flatten, label %.preheader2.preheader.preheader, label %dct_1d.1.exit
+
+ST_2: tmp_i3 (97)  [1/1] 1.88ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:33
+dct_1d.1.exit:3  %tmp_i3 = icmp eq i4 %k_i, -8
+
+ST_2: k_i_mid2 (98)  [1/1] 1.37ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:33
+dct_1d.1.exit:4  %k_i_mid2 = select i1 %tmp_i3, i4 0, i4 %k_i
+
+ST_2: k_i_cast (103)  [1/1] 0.00ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:33
+dct_1d.1.exit:9  %k_i_cast = zext i4 %k_i_mid2 to i32
+
+ST_2: dct_coeff_table_1_ad (125)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:31  %dct_coeff_table_1_ad = getelementptr [8 x i15]* @dct_coeff_table_1, i32 0, i32 %k_i_cast
+
+ST_2: dct_coeff_table_1_lo (126)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:32  %dct_coeff_table_1_lo = load i15* %dct_coeff_table_1_ad, align 2
+
+ST_2: in_block_0_load_1 (128)  [2/2] 2.39ns
+dct_1d.1.exit:34  %in_block_0_load_1 = load i16* %in_block_0_addr_1, align 2
+
+ST_2: in_block_1_load_1 (129)  [2/2] 2.39ns
+dct_1d.1.exit:35  %in_block_1_load_1 = load i16* %in_block_1_addr_1, align 2
+
+ST_2: in_block_2_load_1 (130)  [2/2] 2.39ns
+dct_1d.1.exit:36  %in_block_2_load_1 = load i16* %in_block_2_addr_1, align 2
+
+ST_2: in_block_3_load_1 (131)  [2/2] 2.39ns
+dct_1d.1.exit:37  %in_block_3_load_1 = load i16* %in_block_3_addr_1, align 2
+
+ST_2: in_block_4_load_1 (132)  [2/2] 2.39ns
+dct_1d.1.exit:38  %in_block_4_load_1 = load i16* %in_block_4_addr_1, align 2
+
+ST_2: in_block_5_load_1 (133)  [2/2] 2.39ns
+dct_1d.1.exit:39  %in_block_5_load_1 = load i16* %in_block_5_addr_1, align 2
+
+ST_2: in_block_6_load_1 (134)  [2/2] 2.39ns
+dct_1d.1.exit:40  %in_block_6_load_1 = load i16* %in_block_6_addr_1, align 2
+
+ST_2: in_block_7_load_1 (135)  [2/2] 2.39ns
+dct_1d.1.exit:41  %in_block_7_load_1 = load i16* %in_block_7_addr_1, align 2
+
+ST_2: dct_coeff_table_3_ad (153)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:59  %dct_coeff_table_3_ad = getelementptr [8 x i15]* @dct_coeff_table_3, i32 0, i32 %k_i_cast
+
+ST_2: dct_coeff_table_3_lo (154)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:60  %dct_coeff_table_3_lo = load i15* %dct_coeff_table_3_ad, align 2
+
+ST_2: in_block_0_load_3 (156)  [2/2] 2.39ns
+dct_1d.1.exit:62  %in_block_0_load_3 = load i16* %in_block_0_addr_3, align 2
+
+ST_2: in_block_1_load_3 (157)  [2/2] 2.39ns
+dct_1d.1.exit:63  %in_block_1_load_3 = load i16* %in_block_1_addr_3, align 2
+
+ST_2: in_block_2_load_3 (158)  [2/2] 2.39ns
+dct_1d.1.exit:64  %in_block_2_load_3 = load i16* %in_block_2_addr_3, align 2
+
+ST_2: in_block_3_load_3 (159)  [2/2] 2.39ns
+dct_1d.1.exit:65  %in_block_3_load_3 = load i16* %in_block_3_addr_3, align 2
+
+ST_2: in_block_4_load_3 (160)  [2/2] 2.39ns
+dct_1d.1.exit:66  %in_block_4_load_3 = load i16* %in_block_4_addr_3, align 2
+
+ST_2: in_block_5_load_3 (161)  [2/2] 2.39ns
+dct_1d.1.exit:67  %in_block_5_load_3 = load i16* %in_block_5_addr_3, align 2
+
+ST_2: in_block_6_load_3 (162)  [2/2] 2.39ns
+dct_1d.1.exit:68  %in_block_6_load_3 = load i16* %in_block_6_addr_3, align 2
+
+ST_2: in_block_7_load_3 (163)  [2/2] 2.39ns
+dct_1d.1.exit:69  %in_block_7_load_3 = load i16* %in_block_7_addr_3, align 2
+
+
+ <State 3>: 4.33ns
+ST_3: i_4 (94)  [1/1] 0.80ns  loc: resource/lab3/dct.c:32
+dct_1d.1.exit:0  %i_4 = add i4 1, %i
+
+ST_3: i_cast_mid2_v (99)  [1/1] 1.37ns  loc: resource/lab3/dct.c:32
+dct_1d.1.exit:5  %i_cast_mid2_v = select i1 %tmp_i3, i4 %i_4, i4 %i
+
+ST_3: tmp_1 (102)  [1/1] 0.00ns  loc: resource/lab3/dct.c:32
+dct_1d.1.exit:8  %tmp_1 = trunc i4 %i_cast_mid2_v to i3
+
+ST_3: dct_coeff_table_0_ad (111)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:17  %dct_coeff_table_0_ad = getelementptr [8 x i14]* @dct_coeff_table_0, i32 0, i32 %k_i_cast
+
+ST_3: dct_coeff_table_0_lo (112)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:18  %dct_coeff_table_0_lo = load i14* %dct_coeff_table_0_ad, align 2
+
+ST_3: in_block_0_load (114)  [2/2] 2.39ns
+dct_1d.1.exit:20  %in_block_0_load = load i16* %in_block_0_addr, align 2
+
+ST_3: in_block_1_load (115)  [2/2] 2.39ns
+dct_1d.1.exit:21  %in_block_1_load = load i16* %in_block_1_addr, align 2
+
+ST_3: in_block_2_load (116)  [2/2] 2.39ns
+dct_1d.1.exit:22  %in_block_2_load = load i16* %in_block_2_addr, align 2
+
+ST_3: in_block_3_load (117)  [2/2] 2.39ns
+dct_1d.1.exit:23  %in_block_3_load = load i16* %in_block_3_addr, align 2
+
+ST_3: in_block_4_load (118)  [2/2] 2.39ns
+dct_1d.1.exit:24  %in_block_4_load = load i16* %in_block_4_addr, align 2
+
+ST_3: in_block_5_load (119)  [2/2] 2.39ns
+dct_1d.1.exit:25  %in_block_5_load = load i16* %in_block_5_addr, align 2
+
+ST_3: in_block_6_load (120)  [2/2] 2.39ns
+dct_1d.1.exit:26  %in_block_6_load = load i16* %in_block_6_addr, align 2
+
+ST_3: in_block_7_load (121)  [2/2] 2.39ns
+dct_1d.1.exit:27  %in_block_7_load = load i16* %in_block_7_addr, align 2
+
+ST_3: dct_coeff_table_1_lo (126)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:32  %dct_coeff_table_1_lo = load i15* %dct_coeff_table_1_ad, align 2
+
+ST_3: in_block_0_load_1 (128)  [1/2] 2.39ns
+dct_1d.1.exit:34  %in_block_0_load_1 = load i16* %in_block_0_addr_1, align 2
+
+ST_3: in_block_1_load_1 (129)  [1/2] 2.39ns
+dct_1d.1.exit:35  %in_block_1_load_1 = load i16* %in_block_1_addr_1, align 2
+
+ST_3: in_block_2_load_1 (130)  [1/2] 2.39ns
+dct_1d.1.exit:36  %in_block_2_load_1 = load i16* %in_block_2_addr_1, align 2
+
+ST_3: in_block_3_load_1 (131)  [1/2] 2.39ns
+dct_1d.1.exit:37  %in_block_3_load_1 = load i16* %in_block_3_addr_1, align 2
+
+ST_3: in_block_4_load_1 (132)  [1/2] 2.39ns
+dct_1d.1.exit:38  %in_block_4_load_1 = load i16* %in_block_4_addr_1, align 2
+
+ST_3: in_block_5_load_1 (133)  [1/2] 2.39ns
+dct_1d.1.exit:39  %in_block_5_load_1 = load i16* %in_block_5_addr_1, align 2
+
+ST_3: in_block_6_load_1 (134)  [1/2] 2.39ns
+dct_1d.1.exit:40  %in_block_6_load_1 = load i16* %in_block_6_addr_1, align 2
+
+ST_3: in_block_7_load_1 (135)  [1/2] 2.39ns
+dct_1d.1.exit:41  %in_block_7_load_1 = load i16* %in_block_7_addr_1, align 2
+
+ST_3: tmp_6 (136)  [1/1] 1.94ns  loc: resource/lab3/dct.c:32
+dct_1d.1.exit:42  %tmp_6 = call i16 @_ssdm_op_Mux.ap_auto.8i16.i3(i16 %in_block_0_load_1, i16 %in_block_1_load_1, i16 %in_block_2_load_1, i16 %in_block_3_load_1, i16 %in_block_4_load_1, i16 %in_block_5_load_1, i16 %in_block_6_load_1, i16 %in_block_7_load_1, i3 %tmp_1)
+
+ST_3: dct_coeff_table_3_lo (154)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:60  %dct_coeff_table_3_lo = load i15* %dct_coeff_table_3_ad, align 2
+
+ST_3: in_block_0_load_3 (156)  [1/2] 2.39ns
+dct_1d.1.exit:62  %in_block_0_load_3 = load i16* %in_block_0_addr_3, align 2
+
+ST_3: in_block_1_load_3 (157)  [1/2] 2.39ns
+dct_1d.1.exit:63  %in_block_1_load_3 = load i16* %in_block_1_addr_3, align 2
+
+ST_3: in_block_2_load_3 (158)  [1/2] 2.39ns
+dct_1d.1.exit:64  %in_block_2_load_3 = load i16* %in_block_2_addr_3, align 2
+
+ST_3: in_block_3_load_3 (159)  [1/2] 2.39ns
+dct_1d.1.exit:65  %in_block_3_load_3 = load i16* %in_block_3_addr_3, align 2
+
+ST_3: in_block_4_load_3 (160)  [1/2] 2.39ns
+dct_1d.1.exit:66  %in_block_4_load_3 = load i16* %in_block_4_addr_3, align 2
+
+ST_3: in_block_5_load_3 (161)  [1/2] 2.39ns
+dct_1d.1.exit:67  %in_block_5_load_3 = load i16* %in_block_5_addr_3, align 2
+
+ST_3: in_block_6_load_3 (162)  [1/2] 2.39ns
+dct_1d.1.exit:68  %in_block_6_load_3 = load i16* %in_block_6_addr_3, align 2
+
+ST_3: in_block_7_load_3 (163)  [1/2] 2.39ns
+dct_1d.1.exit:69  %in_block_7_load_3 = load i16* %in_block_7_addr_3, align 2
+
+ST_3: tmp_s (164)  [1/1] 1.94ns  loc: resource/lab3/dct.c:32
+dct_1d.1.exit:70  %tmp_s = call i16 @_ssdm_op_Mux.ap_auto.8i16.i3(i16 %in_block_0_load_3, i16 %in_block_1_load_3, i16 %in_block_2_load_3, i16 %in_block_3_load_3, i16 %in_block_4_load_3, i16 %in_block_5_load_3, i16 %in_block_6_load_3, i16 %in_block_7_load_3, i3 %tmp_1)
+
+ST_3: dct_coeff_table_5_ad (181)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:87  %dct_coeff_table_5_ad = getelementptr [8 x i15]* @dct_coeff_table_5, i32 0, i32 %k_i_cast
+
+ST_3: dct_coeff_table_5_lo (182)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:88  %dct_coeff_table_5_lo = load i15* %dct_coeff_table_5_ad, align 2
+
+ST_3: in_block_0_load_5 (184)  [2/2] 2.39ns
+dct_1d.1.exit:90  %in_block_0_load_5 = load i16* %in_block_0_addr_5, align 2
+
+ST_3: in_block_1_load_5 (185)  [2/2] 2.39ns
+dct_1d.1.exit:91  %in_block_1_load_5 = load i16* %in_block_1_addr_5, align 2
+
+ST_3: in_block_2_load_5 (186)  [2/2] 2.39ns
+dct_1d.1.exit:92  %in_block_2_load_5 = load i16* %in_block_2_addr_5, align 2
+
+ST_3: in_block_3_load_5 (187)  [2/2] 2.39ns
+dct_1d.1.exit:93  %in_block_3_load_5 = load i16* %in_block_3_addr_5, align 2
+
+ST_3: in_block_4_load_5 (188)  [2/2] 2.39ns
+dct_1d.1.exit:94  %in_block_4_load_5 = load i16* %in_block_4_addr_5, align 2
+
+ST_3: in_block_5_load_5 (189)  [2/2] 2.39ns
+dct_1d.1.exit:95  %in_block_5_load_5 = load i16* %in_block_5_addr_5, align 2
+
+ST_3: in_block_6_load_5 (190)  [2/2] 2.39ns
+dct_1d.1.exit:96  %in_block_6_load_5 = load i16* %in_block_6_addr_5, align 2
+
+ST_3: in_block_7_load_5 (191)  [2/2] 2.39ns
+dct_1d.1.exit:97  %in_block_7_load_5 = load i16* %in_block_7_addr_5, align 2
+
+
+ <State 4>: 6.38ns
+ST_4: dct_coeff_table_0_lo (112)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:18  %dct_coeff_table_0_lo = load i14* %dct_coeff_table_0_ad, align 2
+
+ST_4: in_block_0_load (114)  [1/2] 2.39ns
+dct_1d.1.exit:20  %in_block_0_load = load i16* %in_block_0_addr, align 2
+
+ST_4: in_block_1_load (115)  [1/2] 2.39ns
+dct_1d.1.exit:21  %in_block_1_load = load i16* %in_block_1_addr, align 2
+
+ST_4: in_block_2_load (116)  [1/2] 2.39ns
+dct_1d.1.exit:22  %in_block_2_load = load i16* %in_block_2_addr, align 2
+
+ST_4: in_block_3_load (117)  [1/2] 2.39ns
+dct_1d.1.exit:23  %in_block_3_load = load i16* %in_block_3_addr, align 2
+
+ST_4: in_block_4_load (118)  [1/2] 2.39ns
+dct_1d.1.exit:24  %in_block_4_load = load i16* %in_block_4_addr, align 2
+
+ST_4: in_block_5_load (119)  [1/2] 2.39ns
+dct_1d.1.exit:25  %in_block_5_load = load i16* %in_block_5_addr, align 2
+
+ST_4: in_block_6_load (120)  [1/2] 2.39ns
+dct_1d.1.exit:26  %in_block_6_load = load i16* %in_block_6_addr, align 2
+
+ST_4: in_block_7_load (121)  [1/2] 2.39ns
+dct_1d.1.exit:27  %in_block_7_load = load i16* %in_block_7_addr, align 2
+
+ST_4: tmp_4 (122)  [1/1] 1.94ns  loc: resource/lab3/dct.c:32
+dct_1d.1.exit:28  %tmp_4 = call i16 @_ssdm_op_Mux.ap_auto.8i16.i3(i16 %in_block_0_load, i16 %in_block_1_load, i16 %in_block_2_load, i16 %in_block_3_load, i16 %in_block_4_load, i16 %in_block_5_load, i16 %in_block_6_load, i16 %in_block_7_load, i3 %tmp_1)
+
+ST_4: coeff_1_i_cast (127)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:33  %coeff_1_i_cast = sext i15 %dct_coeff_table_1_lo to i29
+
+ST_4: tmp_6_1_i_cast (137)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:43  %tmp_6_1_i_cast = sext i16 %tmp_6 to i29
+
+ST_4: tmp_7_1_i (138)  [1/1] 6.38ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:44  %tmp_7_1_i = mul i29 %tmp_6_1_i_cast, %coeff_1_i_cast
+
+ST_4: dct_coeff_table_2_ad (139)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:45  %dct_coeff_table_2_ad = getelementptr [8 x i15]* @dct_coeff_table_2, i32 0, i32 %k_i_cast
+
+ST_4: dct_coeff_table_2_lo (140)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:46  %dct_coeff_table_2_lo = load i15* %dct_coeff_table_2_ad, align 2
+
+ST_4: in_block_0_load_2 (142)  [2/2] 2.39ns
+dct_1d.1.exit:48  %in_block_0_load_2 = load i16* %in_block_0_addr_2, align 2
+
+ST_4: in_block_1_load_2 (143)  [2/2] 2.39ns
+dct_1d.1.exit:49  %in_block_1_load_2 = load i16* %in_block_1_addr_2, align 2
+
+ST_4: in_block_2_load_2 (144)  [2/2] 2.39ns
+dct_1d.1.exit:50  %in_block_2_load_2 = load i16* %in_block_2_addr_2, align 2
+
+ST_4: in_block_3_load_2 (145)  [2/2] 2.39ns
+dct_1d.1.exit:51  %in_block_3_load_2 = load i16* %in_block_3_addr_2, align 2
+
+ST_4: in_block_4_load_2 (146)  [2/2] 2.39ns
+dct_1d.1.exit:52  %in_block_4_load_2 = load i16* %in_block_4_addr_2, align 2
+
+ST_4: in_block_5_load_2 (147)  [2/2] 2.39ns
+dct_1d.1.exit:53  %in_block_5_load_2 = load i16* %in_block_5_addr_2, align 2
+
+ST_4: in_block_6_load_2 (148)  [2/2] 2.39ns
+dct_1d.1.exit:54  %in_block_6_load_2 = load i16* %in_block_6_addr_2, align 2
+
+ST_4: in_block_7_load_2 (149)  [2/2] 2.39ns
+dct_1d.1.exit:55  %in_block_7_load_2 = load i16* %in_block_7_addr_2, align 2
+
+ST_4: coeff_3_i_cast (155)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:61  %coeff_3_i_cast = sext i15 %dct_coeff_table_3_lo to i29
+
+ST_4: tmp_6_3_i_cast (165)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:71  %tmp_6_3_i_cast = sext i16 %tmp_s to i29
+
+ST_4: tmp_7_3_i (166)  [1/1] 6.38ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:72  %tmp_7_3_i = mul i29 %tmp_6_3_i_cast, %coeff_3_i_cast
+
+ST_4: dct_coeff_table_4_ad (167)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:73  %dct_coeff_table_4_ad = getelementptr [8 x i15]* @dct_coeff_table_4, i32 0, i32 %k_i_cast
+
+ST_4: dct_coeff_table_4_lo (168)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:74  %dct_coeff_table_4_lo = load i15* %dct_coeff_table_4_ad, align 2
+
+ST_4: in_block_0_load_4 (170)  [2/2] 2.39ns
+dct_1d.1.exit:76  %in_block_0_load_4 = load i16* %in_block_0_addr_4, align 2
+
+ST_4: in_block_1_load_4 (171)  [2/2] 2.39ns
+dct_1d.1.exit:77  %in_block_1_load_4 = load i16* %in_block_1_addr_4, align 2
+
+ST_4: in_block_2_load_4 (172)  [2/2] 2.39ns
+dct_1d.1.exit:78  %in_block_2_load_4 = load i16* %in_block_2_addr_4, align 2
+
+ST_4: in_block_3_load_4 (173)  [2/2] 2.39ns
+dct_1d.1.exit:79  %in_block_3_load_4 = load i16* %in_block_3_addr_4, align 2
+
+ST_4: in_block_4_load_4 (174)  [2/2] 2.39ns
+dct_1d.1.exit:80  %in_block_4_load_4 = load i16* %in_block_4_addr_4, align 2
+
+ST_4: in_block_5_load_4 (175)  [2/2] 2.39ns
+dct_1d.1.exit:81  %in_block_5_load_4 = load i16* %in_block_5_addr_4, align 2
+
+ST_4: in_block_6_load_4 (176)  [2/2] 2.39ns
+dct_1d.1.exit:82  %in_block_6_load_4 = load i16* %in_block_6_addr_4, align 2
+
+ST_4: in_block_7_load_4 (177)  [2/2] 2.39ns
+dct_1d.1.exit:83  %in_block_7_load_4 = load i16* %in_block_7_addr_4, align 2
+
+ST_4: dct_coeff_table_5_lo (182)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:88  %dct_coeff_table_5_lo = load i15* %dct_coeff_table_5_ad, align 2
+
+ST_4: in_block_0_load_5 (184)  [1/2] 2.39ns
+dct_1d.1.exit:90  %in_block_0_load_5 = load i16* %in_block_0_addr_5, align 2
+
+ST_4: in_block_1_load_5 (185)  [1/2] 2.39ns
+dct_1d.1.exit:91  %in_block_1_load_5 = load i16* %in_block_1_addr_5, align 2
+
+ST_4: in_block_2_load_5 (186)  [1/2] 2.39ns
+dct_1d.1.exit:92  %in_block_2_load_5 = load i16* %in_block_2_addr_5, align 2
+
+ST_4: in_block_3_load_5 (187)  [1/2] 2.39ns
+dct_1d.1.exit:93  %in_block_3_load_5 = load i16* %in_block_3_addr_5, align 2
+
+ST_4: in_block_4_load_5 (188)  [1/2] 2.39ns
+dct_1d.1.exit:94  %in_block_4_load_5 = load i16* %in_block_4_addr_5, align 2
+
+ST_4: in_block_5_load_5 (189)  [1/2] 2.39ns
+dct_1d.1.exit:95  %in_block_5_load_5 = load i16* %in_block_5_addr_5, align 2
+
+ST_4: in_block_6_load_5 (190)  [1/2] 2.39ns
+dct_1d.1.exit:96  %in_block_6_load_5 = load i16* %in_block_6_addr_5, align 2
+
+ST_4: in_block_7_load_5 (191)  [1/2] 2.39ns
+dct_1d.1.exit:97  %in_block_7_load_5 = load i16* %in_block_7_addr_5, align 2
+
+ST_4: tmp_10 (192)  [1/1] 1.94ns  loc: resource/lab3/dct.c:32
+dct_1d.1.exit:98  %tmp_10 = call i16 @_ssdm_op_Mux.ap_auto.8i16.i3(i16 %in_block_0_load_5, i16 %in_block_1_load_5, i16 %in_block_2_load_5, i16 %in_block_3_load_5, i16 %in_block_4_load_5, i16 %in_block_5_load_5, i16 %in_block_6_load_5, i16 %in_block_7_load_5, i3 %tmp_1)
+
+ST_4: dct_coeff_table_6_ad (195)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:101  %dct_coeff_table_6_ad = getelementptr [8 x i15]* @dct_coeff_table_6, i32 0, i32 %k_i_cast
+
+ST_4: dct_coeff_table_6_lo (196)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:102  %dct_coeff_table_6_lo = load i15* %dct_coeff_table_6_ad, align 2
+
+ST_4: dct_coeff_table_7_ad (209)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:115  %dct_coeff_table_7_ad = getelementptr [8 x i15]* @dct_coeff_table_7, i32 0, i32 %k_i_cast
+
+ST_4: dct_coeff_table_7_lo (210)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:116  %dct_coeff_table_7_lo = load i15* %dct_coeff_table_7_ad, align 2
+
+
+ <State 5>: 6.38ns
+ST_5: coeff_i_cast (113)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:19  %coeff_i_cast = zext i14 %dct_coeff_table_0_lo to i29
+
+ST_5: tmp_6_i_cast (123)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:29  %tmp_6_i_cast = sext i16 %tmp_4 to i29
+
+ST_5: tmp_7_i (124)  [1/1] 3.36ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:30  %tmp_7_i = mul i29 %tmp_6_i_cast, %coeff_i_cast
+
+ST_5: dct_coeff_table_2_lo (140)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:46  %dct_coeff_table_2_lo = load i15* %dct_coeff_table_2_ad, align 2
+
+ST_5: in_block_0_load_2 (142)  [1/2] 2.39ns
+dct_1d.1.exit:48  %in_block_0_load_2 = load i16* %in_block_0_addr_2, align 2
+
+ST_5: in_block_1_load_2 (143)  [1/2] 2.39ns
+dct_1d.1.exit:49  %in_block_1_load_2 = load i16* %in_block_1_addr_2, align 2
+
+ST_5: in_block_2_load_2 (144)  [1/2] 2.39ns
+dct_1d.1.exit:50  %in_block_2_load_2 = load i16* %in_block_2_addr_2, align 2
+
+ST_5: in_block_3_load_2 (145)  [1/2] 2.39ns
+dct_1d.1.exit:51  %in_block_3_load_2 = load i16* %in_block_3_addr_2, align 2
+
+ST_5: in_block_4_load_2 (146)  [1/2] 2.39ns
+dct_1d.1.exit:52  %in_block_4_load_2 = load i16* %in_block_4_addr_2, align 2
+
+ST_5: in_block_5_load_2 (147)  [1/2] 2.39ns
+dct_1d.1.exit:53  %in_block_5_load_2 = load i16* %in_block_5_addr_2, align 2
+
+ST_5: in_block_6_load_2 (148)  [1/2] 2.39ns
+dct_1d.1.exit:54  %in_block_6_load_2 = load i16* %in_block_6_addr_2, align 2
+
+ST_5: in_block_7_load_2 (149)  [1/2] 2.39ns
+dct_1d.1.exit:55  %in_block_7_load_2 = load i16* %in_block_7_addr_2, align 2
+
+ST_5: tmp_8 (150)  [1/1] 1.94ns  loc: resource/lab3/dct.c:32
+dct_1d.1.exit:56  %tmp_8 = call i16 @_ssdm_op_Mux.ap_auto.8i16.i3(i16 %in_block_0_load_2, i16 %in_block_1_load_2, i16 %in_block_2_load_2, i16 %in_block_3_load_2, i16 %in_block_4_load_2, i16 %in_block_5_load_2, i16 %in_block_6_load_2, i16 %in_block_7_load_2, i3 %tmp_1)
+
+ST_5: dct_coeff_table_4_lo (168)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:74  %dct_coeff_table_4_lo = load i15* %dct_coeff_table_4_ad, align 2
+
+ST_5: in_block_0_load_4 (170)  [1/2] 2.39ns
+dct_1d.1.exit:76  %in_block_0_load_4 = load i16* %in_block_0_addr_4, align 2
+
+ST_5: in_block_1_load_4 (171)  [1/2] 2.39ns
+dct_1d.1.exit:77  %in_block_1_load_4 = load i16* %in_block_1_addr_4, align 2
+
+ST_5: in_block_2_load_4 (172)  [1/2] 2.39ns
+dct_1d.1.exit:78  %in_block_2_load_4 = load i16* %in_block_2_addr_4, align 2
+
+ST_5: in_block_3_load_4 (173)  [1/2] 2.39ns
+dct_1d.1.exit:79  %in_block_3_load_4 = load i16* %in_block_3_addr_4, align 2
+
+ST_5: in_block_4_load_4 (174)  [1/2] 2.39ns
+dct_1d.1.exit:80  %in_block_4_load_4 = load i16* %in_block_4_addr_4, align 2
+
+ST_5: in_block_5_load_4 (175)  [1/2] 2.39ns
+dct_1d.1.exit:81  %in_block_5_load_4 = load i16* %in_block_5_addr_4, align 2
+
+ST_5: in_block_6_load_4 (176)  [1/2] 2.39ns
+dct_1d.1.exit:82  %in_block_6_load_4 = load i16* %in_block_6_addr_4, align 2
+
+ST_5: in_block_7_load_4 (177)  [1/2] 2.39ns
+dct_1d.1.exit:83  %in_block_7_load_4 = load i16* %in_block_7_addr_4, align 2
+
+ST_5: tmp_2 (178)  [1/1] 1.94ns  loc: resource/lab3/dct.c:32
+dct_1d.1.exit:84  %tmp_2 = call i16 @_ssdm_op_Mux.ap_auto.8i16.i3(i16 %in_block_0_load_4, i16 %in_block_1_load_4, i16 %in_block_2_load_4, i16 %in_block_3_load_4, i16 %in_block_4_load_4, i16 %in_block_5_load_4, i16 %in_block_6_load_4, i16 %in_block_7_load_4, i3 %tmp_1)
+
+ST_5: coeff_5_i_cast (183)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:89  %coeff_5_i_cast = sext i15 %dct_coeff_table_5_lo to i29
+
+ST_5: tmp_6_5_i_cast (193)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:99  %tmp_6_5_i_cast = sext i16 %tmp_10 to i29
+
+ST_5: tmp_7_5_i (194)  [1/1] 6.38ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:100  %tmp_7_5_i = mul i29 %tmp_6_5_i_cast, %coeff_5_i_cast
+
+ST_5: dct_coeff_table_6_lo (196)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:102  %dct_coeff_table_6_lo = load i15* %dct_coeff_table_6_ad, align 2
+
+ST_5: in_block_0_load_6 (198)  [2/2] 2.39ns
+dct_1d.1.exit:104  %in_block_0_load_6 = load i16* %in_block_0_addr_6, align 2
+
+ST_5: in_block_1_load_6 (199)  [2/2] 2.39ns
+dct_1d.1.exit:105  %in_block_1_load_6 = load i16* %in_block_1_addr_6, align 2
+
+ST_5: in_block_2_load_6 (200)  [2/2] 2.39ns
+dct_1d.1.exit:106  %in_block_2_load_6 = load i16* %in_block_2_addr_6, align 2
+
+ST_5: in_block_3_load_6 (201)  [2/2] 2.39ns
+dct_1d.1.exit:107  %in_block_3_load_6 = load i16* %in_block_3_addr_6, align 2
+
+ST_5: in_block_4_load_6 (202)  [2/2] 2.39ns
+dct_1d.1.exit:108  %in_block_4_load_6 = load i16* %in_block_4_addr_6, align 2
+
+ST_5: in_block_5_load_6 (203)  [2/2] 2.39ns
+dct_1d.1.exit:109  %in_block_5_load_6 = load i16* %in_block_5_addr_6, align 2
+
+ST_5: in_block_6_load_6 (204)  [2/2] 2.39ns
+dct_1d.1.exit:110  %in_block_6_load_6 = load i16* %in_block_6_addr_6, align 2
+
+ST_5: in_block_7_load_6 (205)  [2/2] 2.39ns
+dct_1d.1.exit:111  %in_block_7_load_6 = load i16* %in_block_7_addr_6, align 2
+
+ST_5: dct_coeff_table_7_lo (210)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:116  %dct_coeff_table_7_lo = load i15* %dct_coeff_table_7_ad, align 2
+
+ST_5: in_block_0_load_7 (212)  [2/2] 2.39ns
+dct_1d.1.exit:118  %in_block_0_load_7 = load i16* %in_block_0_addr_7, align 2
+
+ST_5: in_block_1_load_7 (213)  [2/2] 2.39ns
+dct_1d.1.exit:119  %in_block_1_load_7 = load i16* %in_block_1_addr_7, align 2
+
+ST_5: in_block_2_load_7 (214)  [2/2] 2.39ns
+dct_1d.1.exit:120  %in_block_2_load_7 = load i16* %in_block_2_addr_7, align 2
+
+ST_5: in_block_3_load_7 (215)  [2/2] 2.39ns
+dct_1d.1.exit:121  %in_block_3_load_7 = load i16* %in_block_3_addr_7, align 2
+
+ST_5: in_block_4_load_7 (216)  [2/2] 2.39ns
+dct_1d.1.exit:122  %in_block_4_load_7 = load i16* %in_block_4_addr_7, align 2
+
+ST_5: in_block_5_load_7 (217)  [2/2] 2.39ns
+dct_1d.1.exit:123  %in_block_5_load_7 = load i16* %in_block_5_addr_7, align 2
+
+ST_5: in_block_6_load_7 (218)  [2/2] 2.39ns
+dct_1d.1.exit:124  %in_block_6_load_7 = load i16* %in_block_6_addr_7, align 2
+
+ST_5: in_block_7_load_7 (219)  [2/2] 2.39ns
+dct_1d.1.exit:125  %in_block_7_load_7 = load i16* %in_block_7_addr_7, align 2
+
+ST_5: tmp6 (223)  [1/1] 3.02ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:129  %tmp6 = add i29 %tmp_7_1_i, %tmp_7_i
+
+ST_5: k (234)  [1/1] 0.80ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:33
+dct_1d.1.exit:140  %k = add i4 1, %k_i_mid2
+
+
+ <State 6>: 8.82ns
+ST_6: coeff_2_i_cast (141)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:47  %coeff_2_i_cast = sext i15 %dct_coeff_table_2_lo to i29
+
+ST_6: tmp_6_2_i_cast (151)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:57  %tmp_6_2_i_cast = sext i16 %tmp_8 to i29
+
+ST_6: tmp_7_2_i (152)  [1/1] 3.36ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:58  %tmp_7_2_i = mul i29 %tmp_6_2_i_cast, %coeff_2_i_cast
+
+ST_6: coeff_4_i_cast (169)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:75  %coeff_4_i_cast = sext i15 %dct_coeff_table_4_lo to i29
+
+ST_6: tmp_6_4_i_cast (179)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:85  %tmp_6_4_i_cast = sext i16 %tmp_2 to i29
+
+ST_6: tmp_7_4_i (180)  [1/1] 3.36ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:86  %tmp_7_4_i = mul i29 %tmp_6_4_i_cast, %coeff_4_i_cast
+
+ST_6: in_block_0_load_6 (198)  [1/2] 2.39ns
+dct_1d.1.exit:104  %in_block_0_load_6 = load i16* %in_block_0_addr_6, align 2
+
+ST_6: in_block_1_load_6 (199)  [1/2] 2.39ns
+dct_1d.1.exit:105  %in_block_1_load_6 = load i16* %in_block_1_addr_6, align 2
+
+ST_6: in_block_2_load_6 (200)  [1/2] 2.39ns
+dct_1d.1.exit:106  %in_block_2_load_6 = load i16* %in_block_2_addr_6, align 2
+
+ST_6: in_block_3_load_6 (201)  [1/2] 2.39ns
+dct_1d.1.exit:107  %in_block_3_load_6 = load i16* %in_block_3_addr_6, align 2
+
+ST_6: in_block_4_load_6 (202)  [1/2] 2.39ns
+dct_1d.1.exit:108  %in_block_4_load_6 = load i16* %in_block_4_addr_6, align 2
+
+ST_6: in_block_5_load_6 (203)  [1/2] 2.39ns
+dct_1d.1.exit:109  %in_block_5_load_6 = load i16* %in_block_5_addr_6, align 2
+
+ST_6: in_block_6_load_6 (204)  [1/2] 2.39ns
+dct_1d.1.exit:110  %in_block_6_load_6 = load i16* %in_block_6_addr_6, align 2
+
+ST_6: in_block_7_load_6 (205)  [1/2] 2.39ns
+dct_1d.1.exit:111  %in_block_7_load_6 = load i16* %in_block_7_addr_6, align 2
+
+ST_6: tmp_11 (206)  [1/1] 1.94ns  loc: resource/lab3/dct.c:32
+dct_1d.1.exit:112  %tmp_11 = call i16 @_ssdm_op_Mux.ap_auto.8i16.i3(i16 %in_block_0_load_6, i16 %in_block_1_load_6, i16 %in_block_2_load_6, i16 %in_block_3_load_6, i16 %in_block_4_load_6, i16 %in_block_5_load_6, i16 %in_block_6_load_6, i16 %in_block_7_load_6, i3 %tmp_1)
+
+ST_6: in_block_0_load_7 (212)  [1/2] 2.39ns
+dct_1d.1.exit:118  %in_block_0_load_7 = load i16* %in_block_0_addr_7, align 2
+
+ST_6: in_block_1_load_7 (213)  [1/2] 2.39ns
+dct_1d.1.exit:119  %in_block_1_load_7 = load i16* %in_block_1_addr_7, align 2
+
+ST_6: in_block_2_load_7 (214)  [1/2] 2.39ns
+dct_1d.1.exit:120  %in_block_2_load_7 = load i16* %in_block_2_addr_7, align 2
+
+ST_6: in_block_3_load_7 (215)  [1/2] 2.39ns
+dct_1d.1.exit:121  %in_block_3_load_7 = load i16* %in_block_3_addr_7, align 2
+
+ST_6: in_block_4_load_7 (216)  [1/2] 2.39ns
+dct_1d.1.exit:122  %in_block_4_load_7 = load i16* %in_block_4_addr_7, align 2
+
+ST_6: in_block_5_load_7 (217)  [1/2] 2.39ns
+dct_1d.1.exit:123  %in_block_5_load_7 = load i16* %in_block_5_addr_7, align 2
+
+ST_6: in_block_6_load_7 (218)  [1/2] 2.39ns
+dct_1d.1.exit:124  %in_block_6_load_7 = load i16* %in_block_6_addr_7, align 2
+
+ST_6: in_block_7_load_7 (219)  [1/2] 2.39ns
+dct_1d.1.exit:125  %in_block_7_load_7 = load i16* %in_block_7_addr_7, align 2
+
+ST_6: tmp_12 (220)  [1/1] 1.94ns  loc: resource/lab3/dct.c:32
+dct_1d.1.exit:126  %tmp_12 = call i16 @_ssdm_op_Mux.ap_auto.8i16.i3(i16 %in_block_0_load_7, i16 %in_block_1_load_7, i16 %in_block_2_load_7, i16 %in_block_3_load_7, i16 %in_block_4_load_7, i16 %in_block_5_load_7, i16 %in_block_6_load_7, i16 %in_block_7_load_7, i3 %tmp_1)
+
+ST_6: tmp7 (224)  [1/1] 3.02ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:130  %tmp7 = add i29 %tmp_7_3_i, %tmp_7_2_i
+
+ST_6: tmp8 (225)  [1/1] 2.44ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:131  %tmp8 = add i29 %tmp6, %tmp7
+
+ST_6: tmp9 (226)  [1/1] 3.02ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:132  %tmp9 = add i29 %tmp_7_5_i, %tmp_7_4_i
+
+
+ <State 7>: 9.40ns
+ST_7: coeff_6_i_cast (197)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:103  %coeff_6_i_cast = sext i15 %dct_coeff_table_6_lo to i29
+
+ST_7: tmp_6_6_i_cast (207)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:113  %tmp_6_6_i_cast = sext i16 %tmp_11 to i29
+
+ST_7: tmp_7_6_i (208)  [1/1] 3.36ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:114  %tmp_7_6_i = mul i29 %tmp_6_6_i_cast, %coeff_6_i_cast
+
+ST_7: coeff_7_i_cast (211)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:33
+dct_1d.1.exit:117  %coeff_7_i_cast = sext i15 %dct_coeff_table_7_lo to i29
+
+ST_7: tmp_6_7_i_cast (221)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:127  %tmp_6_7_i_cast = sext i16 %tmp_12 to i29
+
+ST_7: tmp_7_7_i (222)  [1/1] 3.36ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:33
+dct_1d.1.exit:128  %tmp_7_7_i = mul i29 %tmp_6_7_i_cast, %coeff_7_i_cast
+
+ST_7: tmp2 (227)  [1/1] 3.02ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:133  %tmp2 = add i29 4096, %tmp_7_7_i
+
+ST_7: tmp3 (228)  [1/1] 3.02ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:134  %tmp3 = add i29 %tmp_7_6_i, %tmp2
+
+
+ <State 8>: 6.65ns
+ST_8: StgValue_298 (95)  [1/1] 0.00ns
+dct_1d.1.exit:1  call void (...)* @_ssdm_op_SpecLoopName([28 x i8]* @Row_DCT_Loop_DCT_Out)
+
+ST_8: empty (96)  [1/1] 0.00ns
+dct_1d.1.exit:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
+
+ST_8: tmp (100)  [1/1] 0.00ns  loc: resource/lab3/dct.c:32
+dct_1d.1.exit:6  %tmp = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %i_cast_mid2_v, i3 0)
+
+ST_8: tmp_1_cast (101)  [1/1] 0.00ns  loc: resource/lab3/dct.c:32
+dct_1d.1.exit:7  %tmp_1_cast = zext i7 %tmp to i8
+
+ST_8: k_i_cast_cast (104)  [1/1] 0.00ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:10  %k_i_cast_cast = zext i4 %k_i_mid2 to i8
+
+ST_8: tmp_5 (105)  [1/1] 1.72ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:11  %tmp_5 = add i8 %tmp_1_cast, %k_i_cast_cast
+
+ST_8: tmp_5_cast (106)  [1/1] 0.00ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:12  %tmp_5_cast = zext i8 %tmp_5 to i32
+
+ST_8: dst_assign_addr (107)  [1/1] 0.00ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:13  %dst_assign_addr = getelementptr [64 x i16]* %dst_assign, i32 0, i32 %tmp_5_cast
+
+ST_8: StgValue_306 (108)  [1/1] 0.00ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:33
+dct_1d.1.exit:14  call void (...)* @_ssdm_op_SpecLoopName([15 x i8]* @p_str) nounwind
+
+ST_8: tmp_11_i (109)  [1/1] 0.00ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:33
+dct_1d.1.exit:15  %tmp_11_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str) nounwind
+
+ST_8: StgValue_308 (110)  [1/1] 0.00ns  loc: resource/lab3/dct.c:14->resource/lab3/dct.c:33
+dct_1d.1.exit:16  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_8: tmp4 (229)  [1/1] 1.97ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:135  %tmp4 = add i29 %tmp9, %tmp3
+
+ST_8: tmp_3_i (230)  [1/1] 1.97ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:136  %tmp_3_i = add i29 %tmp8, %tmp4
+
+ST_8: tmp_5_i (231)  [1/1] 0.00ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:137  %tmp_5_i = call i16 @_ssdm_op_PartSelect.i16.i29.i32.i32(i29 %tmp_3_i, i32 13, i32 28)
+
+ST_8: StgValue_312 (232)  [1/1] 2.71ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:33
+dct_1d.1.exit:138  store i16 %tmp_5_i, i16* %dst_assign_addr, align 2
+
+ST_8: empty_6 (233)  [1/1] 0.00ns  loc: resource/lab3/dct.c:20->resource/lab3/dct.c:33
+dct_1d.1.exit:139  %empty_6 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str, i32 %tmp_11_i) nounwind
+
+ST_8: StgValue_314 (235)  [1/1] 0.00ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:33
+dct_1d.1.exit:141  br label %1
+
+
+ <State 9>: 1.57ns
+ST_9: StgValue_315 (237)  [1/1] 1.57ns
+.preheader2.preheader.preheader:0  br label %.preheader2.preheader
+
+
+ <State 10>: 7.68ns
+ST_10: indvar_flatten7 (239)  [1/1] 0.00ns
+.preheader2.preheader:0  %indvar_flatten7 = phi i7 [ %indvar_flatten_next8, %.preheader2 ], [ 0, %.preheader2.preheader.preheader ]
+
+ST_10: j (240)  [1/1] 0.00ns  loc: resource/lab3/dct.c:37
+.preheader2.preheader:1  %j = phi i4 [ %j_cast_mid2_v, %.preheader2 ], [ 0, %.preheader2.preheader.preheader ]
+
+ST_10: i_1 (241)  [1/1] 0.00ns
+.preheader2.preheader:2  %i_1 = phi i4 [ %i_6, %.preheader2 ], [ 0, %.preheader2.preheader.preheader ]
+
+ST_10: exitcond_flatten9 (242)  [1/1] 1.97ns
+.preheader2.preheader:3  %exitcond_flatten9 = icmp eq i7 %indvar_flatten7, -64
+
+ST_10: indvar_flatten_next8 (243)  [1/1] 1.72ns
+.preheader2.preheader:4  %indvar_flatten_next8 = add i7 %indvar_flatten7, 1
+
+ST_10: StgValue_321 (244)  [1/1] 0.00ns
+.preheader2.preheader:5  br i1 %exitcond_flatten9, label %.preheader1.preheader, label %.preheader2
+
+ST_10: j_2 (246)  [1/1] 0.80ns  loc: resource/lab3/dct.c:37
+.preheader2:0  %j_2 = add i4 %j, 1
+
+ST_10: tmp_13 (249)  [1/1] 1.88ns  loc: resource/lab3/dct.c:39
+.preheader2:3  %tmp_13 = icmp eq i4 %i_1, -8
+
+ST_10: i_1_mid2 (250)  [1/1] 1.37ns  loc: resource/lab3/dct.c:39
+.preheader2:4  %i_1_mid2 = select i1 %tmp_13, i4 0, i4 %i_1
+
+ST_10: j_cast_mid2_v (251)  [1/1] 1.37ns  loc: resource/lab3/dct.c:37
+.preheader2:5  %j_cast_mid2_v = select i1 %tmp_13, i4 %j_2, i4 %j
+
+ST_10: j_cast_mid2_cast (252)  [1/1] 0.00ns  loc: resource/lab3/dct.c:37
+.preheader2:6  %j_cast_mid2_cast = zext i4 %j_cast_mid2_v to i8
+
+ST_10: tmp_16 (259)  [1/1] 0.00ns  loc: resource/lab3/dct.c:39
+.preheader2:13  %tmp_16 = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %i_1_mid2, i3 0)
+
+ST_10: tmp_19_cast (260)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40
+.preheader2:14  %tmp_19_cast = zext i7 %tmp_16 to i8
+
+ST_10: tmp_17 (261)  [1/1] 1.72ns  loc: resource/lab3/dct.c:40
+.preheader2:15  %tmp_17 = add i8 %j_cast_mid2_cast, %tmp_19_cast
+
+ST_10: tmp_20_cast (262)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40
+.preheader2:16  %tmp_20_cast = zext i8 %tmp_17 to i32
+
+ST_10: dst_assign_addr_1 (263)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40
+.preheader2:17  %dst_assign_addr_1 = getelementptr [64 x i16]* %dst_assign, i32 0, i32 %tmp_20_cast
+
+ST_10: dst_assign_load (267)  [2/2] 2.71ns  loc: resource/lab3/dct.c:40
+.preheader2:21  %dst_assign_load = load i16* %dst_assign_addr_1, align 2
+
+ST_10: i_6 (270)  [1/1] 0.80ns  loc: resource/lab3/dct.c:39
+.preheader2:24  %i_6 = add i4 %i_1_mid2, 1
+
+
+ <State 11>: 5.42ns
+ST_11: StgValue_334 (247)  [1/1] 0.00ns
+.preheader2:1  call void (...)* @_ssdm_op_SpecLoopName([42 x i8]* @Xpose_Row_Outer_Loop)
+
+ST_11: empty_7 (248)  [1/1] 0.00ns
+.preheader2:2  %empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
+
+ST_11: tmp_14 (253)  [1/1] 0.00ns  loc: resource/lab3/dct.c:37
+.preheader2:7  %tmp_14 = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %j_cast_mid2_v, i3 0)
+
+ST_11: tmp_16_cast (254)  [1/1] 0.00ns  loc: resource/lab3/dct.c:39
+.preheader2:8  %tmp_16_cast = zext i7 %tmp_14 to i8
+
+ST_11: i_1_cast_cast (255)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40
+.preheader2:9  %i_1_cast_cast = zext i4 %i_1_mid2 to i8
+
+ST_11: tmp_15 (256)  [1/1] 1.72ns  loc: resource/lab3/dct.c:40
+.preheader2:10  %tmp_15 = add i8 %i_1_cast_cast, %tmp_16_cast
+
+ST_11: tmp_17_cast (257)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40
+.preheader2:11  %tmp_17_cast = zext i8 %tmp_15 to i32
+
+ST_11: col_inbuf_addr (258)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40
+.preheader2:12  %col_inbuf_addr = getelementptr [64 x i16]* %col_inbuf, i32 0, i32 %tmp_17_cast
+
+ST_11: StgValue_342 (264)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40
+.preheader2:18  call void (...)* @_ssdm_op_SpecLoopName([21 x i8]* @p_str5) nounwind
+
+ST_11: tmp_7 (265)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40
+.preheader2:19  %tmp_7 = call i32 (...)* @_ssdm_op_SpecRegionBegin([21 x i8]* @p_str5)
+
+ST_11: StgValue_344 (266)  [1/1] 0.00ns  loc: resource/lab3/dct.c:41
+.preheader2:20  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_11: dst_assign_load (267)  [1/2] 2.71ns  loc: resource/lab3/dct.c:40
+.preheader2:21  %dst_assign_load = load i16* %dst_assign_addr_1, align 2
+
+ST_11: StgValue_346 (268)  [1/1] 2.71ns  loc: resource/lab3/dct.c:40
+.preheader2:22  store i16 %dst_assign_load, i16* %col_inbuf_addr, align 2
+
+ST_11: empty_8 (269)  [1/1] 0.00ns  loc: resource/lab3/dct.c:40
+.preheader2:23  %empty_8 = call i32 (...)* @_ssdm_op_SpecRegionEnd([21 x i8]* @p_str5, i32 %tmp_7)
+
+ST_11: StgValue_348 (271)  [1/1] 0.00ns
+.preheader2:25  br label %.preheader2.preheader
+
+
+ <State 12>: 1.57ns
+ST_12: StgValue_349 (273)  [1/1] 1.57ns  loc: resource/lab3/dct.c:43
+.preheader1.preheader:0  br label %.preheader1
+
+
+ <State 13>: 2.71ns
+ST_13: i_2 (275)  [1/1] 0.00ns
+.preheader1:0  %i_2 = phi i4 [ %i_5, %.preheader1.loopexit ], [ 0, %.preheader1.preheader ]
+
+ST_13: tmp_9 (276)  [1/1] 1.88ns  loc: resource/lab3/dct.c:43
+.preheader1:1  %tmp_9 = icmp eq i4 %i_2, -8
+
+ST_13: i_5 (277)  [1/1] 0.80ns  loc: resource/lab3/dct.c:43
+.preheader1:2  %i_5 = add i4 %i_2, 1
+
+ST_13: StgValue_353 (278)  [1/1] 0.00ns  loc: resource/lab3/dct.c:43
+.preheader1:3  br i1 %tmp_9, label %.preheader.preheader.preheader, label %2
+
+ST_13: tmp_18 (280)  [1/1] 0.00ns  loc: resource/lab3/dct.c:43
+:0  %tmp_18 = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %i_2, i3 0)
+
+ST_13: tmp_19 (281)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:1  %tmp_19 = zext i7 %tmp_18 to i32
+
+ST_13: col_inbuf_addr_1 (283)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:3  %col_inbuf_addr_1 = getelementptr [64 x i16]* %col_inbuf, i32 0, i32 %tmp_19
+
+ST_13: tmp_20 (284)  [1/1] 0.00ns  loc: resource/lab3/dct.c:43
+:4  %tmp_20 = or i7 %tmp_18, 1
+
+ST_13: tmp_21 (285)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:5  %tmp_21 = call i32 @_ssdm_op_BitConcatenate.i32.i25.i7(i25 0, i7 %tmp_20)
+
+ST_13: col_inbuf_addr_2 (286)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:6  %col_inbuf_addr_2 = getelementptr [64 x i16]* %col_inbuf, i32 0, i32 %tmp_21
+
+ST_13: col_inbuf_load (307)  [2/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:27  %col_inbuf_load = load i16* %col_inbuf_addr_1, align 2
+
+ST_13: col_inbuf_load_1 (309)  [2/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:29  %col_inbuf_load_1 = load i16* %col_inbuf_addr_2, align 2
+
+ST_13: StgValue_362 (386)  [1/1] 1.57ns
+.preheader.preheader.preheader:0  br label %.preheader.preheader
+
+
+ <State 14>: 2.71ns
+ST_14: tmp_22 (287)  [1/1] 0.00ns  loc: resource/lab3/dct.c:43
+:7  %tmp_22 = or i7 %tmp_18, 2
+
+ST_14: tmp_23 (288)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:8  %tmp_23 = call i32 @_ssdm_op_BitConcatenate.i32.i25.i7(i25 0, i7 %tmp_22)
+
+ST_14: col_inbuf_addr_3 (289)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:9  %col_inbuf_addr_3 = getelementptr [64 x i16]* %col_inbuf, i32 0, i32 %tmp_23
+
+ST_14: tmp_24 (290)  [1/1] 0.00ns  loc: resource/lab3/dct.c:43
+:10  %tmp_24 = or i7 %tmp_18, 3
+
+ST_14: tmp_25 (291)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:11  %tmp_25 = call i32 @_ssdm_op_BitConcatenate.i32.i25.i7(i25 0, i7 %tmp_24)
+
+ST_14: col_inbuf_addr_4 (292)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:12  %col_inbuf_addr_4 = getelementptr [64 x i16]* %col_inbuf, i32 0, i32 %tmp_25
+
+ST_14: col_inbuf_load (307)  [1/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:27  %col_inbuf_load = load i16* %col_inbuf_addr_1, align 2
+
+ST_14: col_inbuf_load_1 (309)  [1/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:29  %col_inbuf_load_1 = load i16* %col_inbuf_addr_2, align 2
+
+ST_14: col_inbuf_load_2 (311)  [2/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:31  %col_inbuf_load_2 = load i16* %col_inbuf_addr_3, align 2
+
+ST_14: col_inbuf_load_3 (313)  [2/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:33  %col_inbuf_load_3 = load i16* %col_inbuf_addr_4, align 2
+
+
+ <State 15>: 2.71ns
+ST_15: tmp_26 (293)  [1/1] 0.00ns  loc: resource/lab3/dct.c:43
+:13  %tmp_26 = or i7 %tmp_18, 4
+
+ST_15: tmp_27 (294)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:14  %tmp_27 = call i32 @_ssdm_op_BitConcatenate.i32.i25.i7(i25 0, i7 %tmp_26)
+
+ST_15: col_inbuf_addr_5 (295)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:15  %col_inbuf_addr_5 = getelementptr [64 x i16]* %col_inbuf, i32 0, i32 %tmp_27
+
+ST_15: tmp_28 (296)  [1/1] 0.00ns  loc: resource/lab3/dct.c:43
+:16  %tmp_28 = or i7 %tmp_18, 5
+
+ST_15: tmp_29 (297)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:17  %tmp_29 = call i32 @_ssdm_op_BitConcatenate.i32.i25.i7(i25 0, i7 %tmp_28)
+
+ST_15: col_inbuf_addr_6 (298)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:18  %col_inbuf_addr_6 = getelementptr [64 x i16]* %col_inbuf, i32 0, i32 %tmp_29
+
+ST_15: col_inbuf_load_2 (311)  [1/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:31  %col_inbuf_load_2 = load i16* %col_inbuf_addr_3, align 2
+
+ST_15: col_inbuf_load_3 (313)  [1/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:33  %col_inbuf_load_3 = load i16* %col_inbuf_addr_4, align 2
+
+ST_15: col_inbuf_load_4 (315)  [2/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:35  %col_inbuf_load_4 = load i16* %col_inbuf_addr_5, align 2
+
+ST_15: col_inbuf_load_5 (317)  [2/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:37  %col_inbuf_load_5 = load i16* %col_inbuf_addr_6, align 2
+
+
+ <State 16>: 2.71ns
+ST_16: tmp_30 (299)  [1/1] 0.00ns  loc: resource/lab3/dct.c:43
+:19  %tmp_30 = or i7 %tmp_18, 6
+
+ST_16: tmp_31 (300)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:20  %tmp_31 = call i32 @_ssdm_op_BitConcatenate.i32.i25.i7(i25 0, i7 %tmp_30)
+
+ST_16: col_inbuf_addr_7 (301)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:21  %col_inbuf_addr_7 = getelementptr [64 x i16]* %col_inbuf, i32 0, i32 %tmp_31
+
+ST_16: tmp_32 (302)  [1/1] 0.00ns  loc: resource/lab3/dct.c:43
+:22  %tmp_32 = or i7 %tmp_18, 7
+
+ST_16: tmp_33 (303)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:23  %tmp_33 = call i32 @_ssdm_op_BitConcatenate.i32.i25.i7(i25 0, i7 %tmp_32)
+
+ST_16: col_inbuf_addr_8 (304)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:24  %col_inbuf_addr_8 = getelementptr [64 x i16]* %col_inbuf, i32 0, i32 %tmp_33
+
+ST_16: col_inbuf_load_4 (315)  [1/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:35  %col_inbuf_load_4 = load i16* %col_inbuf_addr_5, align 2
+
+ST_16: col_inbuf_load_5 (317)  [1/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:37  %col_inbuf_load_5 = load i16* %col_inbuf_addr_6, align 2
+
+ST_16: col_inbuf_load_6 (319)  [2/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:39  %col_inbuf_load_6 = load i16* %col_inbuf_addr_7, align 2
+
+ST_16: col_inbuf_load_7 (321)  [2/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:41  %col_inbuf_load_7 = load i16* %col_inbuf_addr_8, align 2
+
+
+ <State 17>: 2.71ns
+ST_17: tmp_22_cast (282)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:2  %tmp_22_cast = zext i7 %tmp_18 to i8
+
+ST_17: empty_9 (305)  [1/1] 0.00ns
+:25  %empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
+
+ST_17: StgValue_395 (306)  [1/1] 0.00ns  loc: resource/lab3/dct.c:43
+:26  call void (...)* @_ssdm_op_SpecLoopName([13 x i8]* @p_str6) nounwind
+
+ST_17: tmp_6_i4_cast (308)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:28  %tmp_6_i4_cast = sext i16 %col_inbuf_load to i29
+
+ST_17: tmp_6_1_i7_cast (310)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:30  %tmp_6_1_i7_cast = sext i16 %col_inbuf_load_1 to i29
+
+ST_17: tmp_6_2_i11_cast (312)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:32  %tmp_6_2_i11_cast = sext i16 %col_inbuf_load_2 to i29
+
+ST_17: tmp_6_3_i15_cast (314)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:34  %tmp_6_3_i15_cast = sext i16 %col_inbuf_load_3 to i29
+
+ST_17: tmp_6_4_i19_cast (316)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:36  %tmp_6_4_i19_cast = sext i16 %col_inbuf_load_4 to i29
+
+ST_17: tmp_6_5_i23_cast (318)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:38  %tmp_6_5_i23_cast = sext i16 %col_inbuf_load_5 to i29
+
+ST_17: col_inbuf_load_6 (319)  [1/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:39  %col_inbuf_load_6 = load i16* %col_inbuf_addr_7, align 2
+
+ST_17: tmp_6_6_i27_cast (320)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:40  %tmp_6_6_i27_cast = sext i16 %col_inbuf_load_6 to i29
+
+ST_17: col_inbuf_load_7 (321)  [1/2] 2.71ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:41  %col_inbuf_load_7 = load i16* %col_inbuf_addr_8, align 2
+
+ST_17: tmp_6_7_i31_cast (322)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:42  %tmp_6_7_i31_cast = sext i16 %col_inbuf_load_7 to i29
+
+ST_17: StgValue_406 (323)  [1/1] 1.57ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:44
+:43  br label %3
+
+
+ <State 18>: 2.39ns
+ST_18: k_i1 (325)  [1/1] 0.00ns
+:0  %k_i1 = phi i4 [ 0, %2 ], [ %k_1, %4 ]
+
+ST_18: tmp_i2 (326)  [1/1] 1.88ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:44
+:1  %tmp_i2 = icmp eq i4 %k_i1, -8
+
+ST_18: k_1 (327)  [1/1] 0.80ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:44
+:2  %k_1 = add i4 %k_i1, 1
+
+ST_18: StgValue_410 (328)  [1/1] 0.00ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:44
+:3  br i1 %tmp_i2, label %.preheader1.loopexit, label %4
+
+ST_18: k_i1_cast (330)  [1/1] 0.00ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:44
+:0  %k_i1_cast = zext i4 %k_i1 to i32
+
+ST_18: k_i1_cast_cast (331)  [1/1] 0.00ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:1  %k_i1_cast_cast = zext i4 %k_i1 to i8
+
+ST_18: tmp_39 (332)  [1/1] 1.72ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:2  %tmp_39 = add i8 %tmp_22_cast, %k_i1_cast_cast
+
+ST_18: dct_coeff_table_1_ad_1 (343)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:13  %dct_coeff_table_1_ad_1 = getelementptr [8 x i15]* @dct_coeff_table_1, i32 0, i32 %k_i1_cast
+
+ST_18: dct_coeff_table_1_lo_1 (344)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:14  %dct_coeff_table_1_lo_1 = load i15* %dct_coeff_table_1_ad_1, align 2
+
+ST_18: dct_coeff_table_3_ad_1 (351)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:21  %dct_coeff_table_3_ad_1 = getelementptr [8 x i15]* @dct_coeff_table_3, i32 0, i32 %k_i1_cast
+
+ST_18: dct_coeff_table_3_lo_1 (352)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:22  %dct_coeff_table_3_lo_1 = load i15* %dct_coeff_table_3_ad_1, align 2
+
+ST_18: dct_coeff_table_5_ad_1 (359)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:29  %dct_coeff_table_5_ad_1 = getelementptr [8 x i15]* @dct_coeff_table_5, i32 0, i32 %k_i1_cast
+
+ST_18: dct_coeff_table_5_lo_1 (360)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:30  %dct_coeff_table_5_lo_1 = load i15* %dct_coeff_table_5_ad_1, align 2
+
+ST_18: dct_coeff_table_6_ad_1 (363)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:33  %dct_coeff_table_6_ad_1 = getelementptr [8 x i15]* @dct_coeff_table_6, i32 0, i32 %k_i1_cast
+
+ST_18: dct_coeff_table_6_lo_1 (364)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:34  %dct_coeff_table_6_lo_1 = load i15* %dct_coeff_table_6_ad_1, align 2
+
+ST_18: dct_coeff_table_7_ad_1 (367)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:37  %dct_coeff_table_7_ad_1 = getelementptr [8 x i15]* @dct_coeff_table_7, i32 0, i32 %k_i1_cast
+
+ST_18: dct_coeff_table_7_lo_1 (368)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:38  %dct_coeff_table_7_lo_1 = load i15* %dct_coeff_table_7_ad_1, align 2
+
+
+ <State 19>: 2.39ns
+ST_19: dct_coeff_table_0_ad_1 (339)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:9  %dct_coeff_table_0_ad_1 = getelementptr [8 x i14]* @dct_coeff_table_0, i32 0, i32 %k_i1_cast
+
+ST_19: dct_coeff_table_0_lo_1 (340)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:10  %dct_coeff_table_0_lo_1 = load i14* %dct_coeff_table_0_ad_1, align 2
+
+ST_19: dct_coeff_table_1_lo_1 (344)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:14  %dct_coeff_table_1_lo_1 = load i15* %dct_coeff_table_1_ad_1, align 2
+
+ST_19: dct_coeff_table_2_ad_1 (347)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:17  %dct_coeff_table_2_ad_1 = getelementptr [8 x i15]* @dct_coeff_table_2, i32 0, i32 %k_i1_cast
+
+ST_19: dct_coeff_table_2_lo_1 (348)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:18  %dct_coeff_table_2_lo_1 = load i15* %dct_coeff_table_2_ad_1, align 2
+
+ST_19: dct_coeff_table_3_lo_1 (352)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:22  %dct_coeff_table_3_lo_1 = load i15* %dct_coeff_table_3_ad_1, align 2
+
+ST_19: dct_coeff_table_4_ad_1 (355)  [1/1] 0.00ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:25  %dct_coeff_table_4_ad_1 = getelementptr [8 x i15]* @dct_coeff_table_4, i32 0, i32 %k_i1_cast
+
+ST_19: dct_coeff_table_4_lo_1 (356)  [2/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:26  %dct_coeff_table_4_lo_1 = load i15* %dct_coeff_table_4_ad_1, align 2
+
+ST_19: dct_coeff_table_5_lo_1 (360)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:30  %dct_coeff_table_5_lo_1 = load i15* %dct_coeff_table_5_ad_1, align 2
+
+ST_19: dct_coeff_table_6_lo_1 (364)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:34  %dct_coeff_table_6_lo_1 = load i15* %dct_coeff_table_6_ad_1, align 2
+
+ST_19: dct_coeff_table_7_lo_1 (368)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:38  %dct_coeff_table_7_lo_1 = load i15* %dct_coeff_table_7_ad_1, align 2
+
+
+ <State 20>: 9.40ns
+ST_20: dct_coeff_table_0_lo_1 (340)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:10  %dct_coeff_table_0_lo_1 = load i14* %dct_coeff_table_0_ad_1, align 2
+
+ST_20: coeff_1_i6_cast (345)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:15  %coeff_1_i6_cast = sext i15 %dct_coeff_table_1_lo_1 to i29
+
+ST_20: tmp_7_1_i8 (346)  [1/1] 6.38ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:16  %tmp_7_1_i8 = mul i29 %tmp_6_1_i7_cast, %coeff_1_i6_cast
+
+ST_20: dct_coeff_table_2_lo_1 (348)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:18  %dct_coeff_table_2_lo_1 = load i15* %dct_coeff_table_2_ad_1, align 2
+
+ST_20: coeff_3_i14_cast (353)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:23  %coeff_3_i14_cast = sext i15 %dct_coeff_table_3_lo_1 to i29
+
+ST_20: tmp_7_3_i1 (354)  [1/1] 6.38ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:24  %tmp_7_3_i1 = mul i29 %tmp_6_3_i15_cast, %coeff_3_i14_cast
+
+ST_20: dct_coeff_table_4_lo_1 (356)  [1/2] 2.39ns  loc: resource/lab3/dct.c:16->resource/lab3/dct.c:44
+:26  %dct_coeff_table_4_lo_1 = load i15* %dct_coeff_table_4_ad_1, align 2
+
+ST_20: coeff_5_i22_cast (361)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:31  %coeff_5_i22_cast = sext i15 %dct_coeff_table_5_lo_1 to i29
+
+ST_20: tmp_7_5_i1 (362)  [1/1] 6.38ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:32  %tmp_7_5_i1 = mul i29 %tmp_6_5_i23_cast, %coeff_5_i22_cast
+
+ST_20: coeff_6_i26_cast (365)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:35  %coeff_6_i26_cast = sext i15 %dct_coeff_table_6_lo_1 to i29
+
+ST_20: tmp_7_6_i1 (366)  [1/1] 3.36ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:36  %tmp_7_6_i1 = mul i29 %tmp_6_6_i27_cast, %coeff_6_i26_cast
+
+ST_20: coeff_7_i30_cast (369)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:39  %coeff_7_i30_cast = sext i15 %dct_coeff_table_7_lo_1 to i29
+
+ST_20: tmp_7_7_i1 (370)  [1/1] 3.36ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:40  %tmp_7_7_i1 = mul i29 %tmp_6_7_i31_cast, %coeff_7_i30_cast
+
+ST_20: tmp13 (375)  [1/1] 3.02ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:45  %tmp13 = add i29 %tmp_7_7_i1, 4096
+
+ST_20: tmp14 (376)  [1/1] 3.02ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:46  %tmp14 = add i29 %tmp_7_6_i1, %tmp13
+
+
+ <State 21>: 10.79ns
+ST_21: coeff_i3_cast (341)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:11  %coeff_i3_cast = zext i14 %dct_coeff_table_0_lo_1 to i29
+
+ST_21: tmp_7_i5 (342)  [1/1] 3.36ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:12  %tmp_7_i5 = mul i29 %tmp_6_i4_cast, %coeff_i3_cast
+
+ST_21: coeff_2_i10_cast (349)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:19  %coeff_2_i10_cast = sext i15 %dct_coeff_table_2_lo_1 to i29
+
+ST_21: tmp_7_2_i1 (350)  [1/1] 3.36ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:20  %tmp_7_2_i1 = mul i29 %tmp_6_2_i11_cast, %coeff_2_i10_cast
+
+ST_21: coeff_4_i18_cast (357)  [1/1] 0.00ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:27  %coeff_4_i18_cast = sext i15 %dct_coeff_table_4_lo_1 to i29
+
+ST_21: tmp_7_4_i1 (358)  [1/1] 3.36ns  loc: resource/lab3/dct.c:17->resource/lab3/dct.c:44
+:28  %tmp_7_4_i1 = mul i29 %tmp_6_4_i19_cast, %coeff_4_i18_cast
+
+ST_21: tmp5 (371)  [1/1] 3.02ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:41  %tmp5 = add i29 %tmp_7_1_i8, %tmp_7_i5
+
+ST_21: tmp10 (372)  [1/1] 3.02ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:42  %tmp10 = add i29 %tmp_7_3_i1, %tmp_7_2_i1
+
+ST_21: tmp11 (373)  [1/1] 2.44ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:43  %tmp11 = add i29 %tmp5, %tmp10
+
+ST_21: tmp12 (374)  [1/1] 3.02ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:44  %tmp12 = add i29 %tmp_7_5_i1, %tmp_7_4_i1
+
+ST_21: tmp15 (377)  [1/1] 1.97ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:47  %tmp15 = add i29 %tmp12, %tmp14
+
+ST_21: tmp_3_i1 (378)  [1/1] 1.97ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:48  %tmp_3_i1 = add i29 %tmp11, %tmp15
+
+ST_21: tmp_5_i1 (379)  [1/1] 0.00ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:49  %tmp_5_i1 = call i16 @_ssdm_op_PartSelect.i16.i29.i32.i32(i29 %tmp_3_i1, i32 13, i32 28)
+
+
+ <State 22>: 2.71ns
+ST_22: tmp_43_cast (333)  [1/1] 0.00ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:3  %tmp_43_cast = zext i8 %tmp_39 to i32
+
+ST_22: dst_assign_1_addr (334)  [1/1] 0.00ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:4  %dst_assign_1_addr = getelementptr [64 x i16]* %dst_assign_1, i32 0, i32 %tmp_43_cast
+
+ST_22: empty_10 (335)  [1/1] 0.00ns
+:5  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)
+
+ST_22: StgValue_466 (336)  [1/1] 0.00ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:44
+:6  call void (...)* @_ssdm_op_SpecLoopName([15 x i8]* @p_str) nounwind
+
+ST_22: tmp_i (337)  [1/1] 0.00ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:44
+:7  %tmp_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str) nounwind
+
+ST_22: StgValue_468 (338)  [1/1] 0.00ns  loc: resource/lab3/dct.c:14->resource/lab3/dct.c:44
+:8  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_22: StgValue_469 (380)  [1/1] 2.71ns  loc: resource/lab3/dct.c:19->resource/lab3/dct.c:44
+:50  store i16 %tmp_5_i1, i16* %dst_assign_1_addr, align 2
+
+ST_22: empty_11 (381)  [1/1] 0.00ns  loc: resource/lab3/dct.c:20->resource/lab3/dct.c:44
+:51  %empty_11 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str, i32 %tmp_i) nounwind
+
+ST_22: StgValue_471 (382)  [1/1] 0.00ns  loc: resource/lab3/dct.c:13->resource/lab3/dct.c:44
+:52  br label %3
+
+
+ <State 23>: 0.00ns
+ST_23: StgValue_472 (384)  [1/1] 0.00ns
+.preheader1.loopexit:0  br label %.preheader1
+
+
+ <State 24>: 7.68ns
+ST_24: indvar_flatten1 (388)  [1/1] 0.00ns
+.preheader.preheader:0  %indvar_flatten1 = phi i7 [ %indvar_flatten_next1, %.preheader ], [ 0, %.preheader.preheader.preheader ]
+
+ST_24: j_1 (389)  [1/1] 0.00ns  loc: resource/lab3/dct.c:48
+.preheader.preheader:1  %j_1 = phi i4 [ %j_1_cast_mid2_v, %.preheader ], [ 0, %.preheader.preheader.preheader ]
+
+ST_24: i_3 (390)  [1/1] 0.00ns
+.preheader.preheader:2  %i_3 = phi i4 [ %i_7, %.preheader ], [ 0, %.preheader.preheader.preheader ]
+
+ST_24: exitcond_flatten1 (391)  [1/1] 1.97ns
+.preheader.preheader:3  %exitcond_flatten1 = icmp eq i7 %indvar_flatten1, -64
+
+ST_24: indvar_flatten_next1 (392)  [1/1] 1.72ns
+.preheader.preheader:4  %indvar_flatten_next1 = add i7 %indvar_flatten1, 1
+
+ST_24: StgValue_478 (393)  [1/1] 0.00ns
+.preheader.preheader:5  br i1 %exitcond_flatten1, label %5, label %.preheader
+
+ST_24: j_3 (395)  [1/1] 0.80ns  loc: resource/lab3/dct.c:48
+.preheader:0  %j_3 = add i4 %j_1, 1
+
+ST_24: tmp_34 (398)  [1/1] 1.88ns  loc: resource/lab3/dct.c:50
+.preheader:3  %tmp_34 = icmp eq i4 %i_3, -8
+
+ST_24: i_3_mid2 (399)  [1/1] 1.37ns  loc: resource/lab3/dct.c:50
+.preheader:4  %i_3_mid2 = select i1 %tmp_34, i4 0, i4 %i_3
+
+ST_24: j_1_cast_mid2_v (400)  [1/1] 1.37ns  loc: resource/lab3/dct.c:48
+.preheader:5  %j_1_cast_mid2_v = select i1 %tmp_34, i4 %j_3, i4 %j_1
+
+ST_24: j_1_cast_mid2_cast (401)  [1/1] 0.00ns  loc: resource/lab3/dct.c:48
+.preheader:6  %j_1_cast_mid2_cast = zext i4 %j_1_cast_mid2_v to i8
+
+ST_24: tmp_37 (408)  [1/1] 0.00ns  loc: resource/lab3/dct.c:50
+.preheader:13  %tmp_37 = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %i_3_mid2, i3 0)
+
+ST_24: tmp_41_cast (409)  [1/1] 0.00ns  loc: resource/lab3/dct.c:51
+.preheader:14  %tmp_41_cast = zext i7 %tmp_37 to i8
+
+ST_24: tmp_38 (410)  [1/1] 1.72ns  loc: resource/lab3/dct.c:51
+.preheader:15  %tmp_38 = add i8 %j_1_cast_mid2_cast, %tmp_41_cast
+
+ST_24: tmp_42_cast (411)  [1/1] 0.00ns  loc: resource/lab3/dct.c:51
+.preheader:16  %tmp_42_cast = zext i8 %tmp_38 to i32
+
+ST_24: dst_assign_1_addr_1 (412)  [1/1] 0.00ns  loc: resource/lab3/dct.c:51
+.preheader:17  %dst_assign_1_addr_1 = getelementptr [64 x i16]* %dst_assign_1, i32 0, i32 %tmp_42_cast
+
+ST_24: dst_assign_1_load (416)  [2/2] 2.71ns  loc: resource/lab3/dct.c:51
+.preheader:21  %dst_assign_1_load = load i16* %dst_assign_1_addr_1, align 2
+
+ST_24: i_7 (419)  [1/1] 0.80ns  loc: resource/lab3/dct.c:50
+.preheader:24  %i_7 = add i4 %i_3_mid2, 1
+
+
+ <State 25>: 5.42ns
+ST_25: StgValue_491 (396)  [1/1] 0.00ns
+.preheader:1  call void (...)* @_ssdm_op_SpecLoopName([42 x i8]* @Xpose_Col_Outer_Loop)
+
+ST_25: empty_12 (397)  [1/1] 0.00ns
+.preheader:2  %empty_12 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
+
+ST_25: tmp_35 (402)  [1/1] 0.00ns  loc: resource/lab3/dct.c:48
+.preheader:7  %tmp_35 = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %j_1_cast_mid2_v, i3 0)
+
+ST_25: tmp_38_cast (403)  [1/1] 0.00ns  loc: resource/lab3/dct.c:50
+.preheader:8  %tmp_38_cast = zext i7 %tmp_35 to i8
+
+ST_25: i_3_cast_cast (404)  [1/1] 0.00ns  loc: resource/lab3/dct.c:51
+.preheader:9  %i_3_cast_cast = zext i4 %i_3_mid2 to i8
+
+ST_25: tmp_36 (405)  [1/1] 1.72ns  loc: resource/lab3/dct.c:51
+.preheader:10  %tmp_36 = add i8 %i_3_cast_cast, %tmp_38_cast
+
+ST_25: tmp_39_cast (406)  [1/1] 0.00ns  loc: resource/lab3/dct.c:51
+.preheader:11  %tmp_39_cast = zext i8 %tmp_36 to i32
+
+ST_25: out_block_addr (407)  [1/1] 0.00ns  loc: resource/lab3/dct.c:51
+.preheader:12  %out_block_addr = getelementptr [64 x i16]* %out_block, i32 0, i32 %tmp_39_cast
+
+ST_25: StgValue_499 (413)  [1/1] 0.00ns  loc: resource/lab3/dct.c:51
+.preheader:18  call void (...)* @_ssdm_op_SpecLoopName([21 x i8]* @p_str8) nounwind
+
+ST_25: tmp_3 (414)  [1/1] 0.00ns  loc: resource/lab3/dct.c:51
+.preheader:19  %tmp_3 = call i32 (...)* @_ssdm_op_SpecRegionBegin([21 x i8]* @p_str8)
+
+ST_25: StgValue_501 (415)  [1/1] 0.00ns  loc: resource/lab3/dct.c:52
+.preheader:20  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_25: dst_assign_1_load (416)  [1/2] 2.71ns  loc: resource/lab3/dct.c:51
+.preheader:21  %dst_assign_1_load = load i16* %dst_assign_1_addr_1, align 2
+
+ST_25: StgValue_503 (417)  [1/1] 2.71ns  loc: resource/lab3/dct.c:51
+.preheader:22  store i16 %dst_assign_1_load, i16* %out_block_addr, align 2
+
+ST_25: empty_13 (418)  [1/1] 0.00ns  loc: resource/lab3/dct.c:51
+.preheader:23  %empty_13 = call i32 (...)* @_ssdm_op_SpecRegionEnd([21 x i8]* @p_str8, i32 %tmp_3)
+
+ST_25: StgValue_505 (420)  [1/1] 0.00ns
+.preheader:25  br label %.preheader.preheader
+
+
+ <State 26>: 0.00ns
+ST_26: StgValue_506 (422)  [1/1] 0.00ns  loc: resource/lab3/dct.c:52
+:0  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('indvar_flatten') with incoming values : ('indvar_flatten_next') [87]  (1.57 ns)
+
+ <State 2>: 5.64ns
+The critical path consists of the following:
+	'phi' operation ('k') with incoming values : ('k', resource/lab3/dct.c:13->resource/lab3/dct.c:33) [89]  (0 ns)
+	'icmp' operation ('tmp_i3', resource/lab3/dct.c:13->resource/lab3/dct.c:33) [97]  (1.88 ns)
+	'select' operation ('k_i_mid2', resource/lab3/dct.c:13->resource/lab3/dct.c:33) [98]  (1.37 ns)
+	'getelementptr' operation ('dct_coeff_table_1_ad', resource/lab3/dct.c:16->resource/lab3/dct.c:33) [125]  (0 ns)
+	'load' operation ('dct_coeff_table_1_lo', resource/lab3/dct.c:16->resource/lab3/dct.c:33) on array 'dct_coeff_table_1' [126]  (2.39 ns)
+
+ <State 3>: 4.33ns
+The critical path consists of the following:
+	'load' operation ('in_block_0_load_1') on array 'in_block_0' [128]  (2.39 ns)
+	'mux' operation ('tmp_6', resource/lab3/dct.c:32) [136]  (1.94 ns)
+
+ <State 4>: 6.38ns
+The critical path consists of the following:
+	'mul' operation ('tmp_7_1_i', resource/lab3/dct.c:17->resource/lab3/dct.c:33) [138]  (6.38 ns)
+
+ <State 5>: 6.38ns
+The critical path consists of the following:
+	'mul' operation ('tmp_7_5_i', resource/lab3/dct.c:17->resource/lab3/dct.c:33) [194]  (6.38 ns)
+
+ <State 6>: 8.82ns
+The critical path consists of the following:
+	'mul' operation ('tmp_7_2_i', resource/lab3/dct.c:17->resource/lab3/dct.c:33) [152]  (3.36 ns)
+	'add' operation ('tmp7', resource/lab3/dct.c:19->resource/lab3/dct.c:33) [224]  (3.02 ns)
+	'add' operation ('tmp8', resource/lab3/dct.c:19->resource/lab3/dct.c:33) [225]  (2.44 ns)
+
+ <State 7>: 9.4ns
+The critical path consists of the following:
+	'mul' operation ('tmp_7_7_i', resource/lab3/dct.c:17->resource/lab3/dct.c:33) [222]  (3.36 ns)
+	'add' operation ('tmp2', resource/lab3/dct.c:19->resource/lab3/dct.c:33) [227]  (3.02 ns)
+	'add' operation ('tmp3', resource/lab3/dct.c:19->resource/lab3/dct.c:33) [228]  (3.02 ns)
+
+ <State 8>: 6.65ns
+The critical path consists of the following:
+	'add' operation ('tmp4', resource/lab3/dct.c:19->resource/lab3/dct.c:33) [229]  (1.97 ns)
+	'add' operation ('tmp_3_i', resource/lab3/dct.c:19->resource/lab3/dct.c:33) [230]  (1.97 ns)
+	'store' operation (resource/lab3/dct.c:19->resource/lab3/dct.c:33) of variable 'tmp_5_i', resource/lab3/dct.c:19->resource/lab3/dct.c:33 on array 'dst' [232]  (2.71 ns)
+
+ <State 9>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('indvar_flatten7') with incoming values : ('indvar_flatten_next8') [239]  (1.57 ns)
+
+ <State 10>: 7.68ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', resource/lab3/dct.c:39) [241]  (0 ns)
+	'icmp' operation ('tmp_13', resource/lab3/dct.c:39) [249]  (1.88 ns)
+	'select' operation ('i_1_mid2', resource/lab3/dct.c:39) [250]  (1.37 ns)
+	'add' operation ('tmp_17', resource/lab3/dct.c:40) [261]  (1.72 ns)
+	'getelementptr' operation ('dst_assign_addr_1', resource/lab3/dct.c:40) [263]  (0 ns)
+	'load' operation ('dst_assign_load', resource/lab3/dct.c:40) on array 'dst' [267]  (2.71 ns)
+
+ <State 11>: 5.42ns
+The critical path consists of the following:
+	'load' operation ('dst_assign_load', resource/lab3/dct.c:40) on array 'dst' [267]  (2.71 ns)
+	'store' operation (resource/lab3/dct.c:40) of variable 'dst_assign_load', resource/lab3/dct.c:40 on array 'col_inbuf', resource/lab3/dct.c:27 [268]  (2.71 ns)
+
+ <State 12>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', resource/lab3/dct.c:43) [275]  (1.57 ns)
+
+ <State 13>: 2.71ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', resource/lab3/dct.c:43) [275]  (0 ns)
+	'or' operation ('tmp_20', resource/lab3/dct.c:43) [284]  (0 ns)
+	'getelementptr' operation ('col_inbuf_addr_2', resource/lab3/dct.c:17->resource/lab3/dct.c:44) [286]  (0 ns)
+	'load' operation ('col_inbuf_load_1', resource/lab3/dct.c:17->resource/lab3/dct.c:44) on array 'col_inbuf', resource/lab3/dct.c:27 [309]  (2.71 ns)
+
+ <State 14>: 2.71ns
+The critical path consists of the following:
+	'or' operation ('tmp_22', resource/lab3/dct.c:43) [287]  (0 ns)
+	'getelementptr' operation ('col_inbuf_addr_3', resource/lab3/dct.c:17->resource/lab3/dct.c:44) [289]  (0 ns)
+	'load' operation ('col_inbuf_load_2', resource/lab3/dct.c:17->resource/lab3/dct.c:44) on array 'col_inbuf', resource/lab3/dct.c:27 [311]  (2.71 ns)
+
+ <State 15>: 2.71ns
+The critical path consists of the following:
+	'or' operation ('tmp_26', resource/lab3/dct.c:43) [293]  (0 ns)
+	'getelementptr' operation ('col_inbuf_addr_5', resource/lab3/dct.c:17->resource/lab3/dct.c:44) [295]  (0 ns)
+	'load' operation ('col_inbuf_load_4', resource/lab3/dct.c:17->resource/lab3/dct.c:44) on array 'col_inbuf', resource/lab3/dct.c:27 [315]  (2.71 ns)
+
+ <State 16>: 2.71ns
+The critical path consists of the following:
+	'or' operation ('tmp_30', resource/lab3/dct.c:43) [299]  (0 ns)
+	'getelementptr' operation ('col_inbuf_addr_7', resource/lab3/dct.c:17->resource/lab3/dct.c:44) [301]  (0 ns)
+	'load' operation ('col_inbuf_load_6', resource/lab3/dct.c:17->resource/lab3/dct.c:44) on array 'col_inbuf', resource/lab3/dct.c:27 [319]  (2.71 ns)
+
+ <State 17>: 2.71ns
+The critical path consists of the following:
+	'load' operation ('col_inbuf_load_6', resource/lab3/dct.c:17->resource/lab3/dct.c:44) on array 'col_inbuf', resource/lab3/dct.c:27 [319]  (2.71 ns)
+
+ <State 18>: 2.39ns
+The critical path consists of the following:
+	'phi' operation ('k') with incoming values : ('k', resource/lab3/dct.c:13->resource/lab3/dct.c:44) [325]  (0 ns)
+	'getelementptr' operation ('dct_coeff_table_1_ad_1', resource/lab3/dct.c:16->resource/lab3/dct.c:44) [343]  (0 ns)
+	'load' operation ('dct_coeff_table_1_lo_1', resource/lab3/dct.c:16->resource/lab3/dct.c:44) on array 'dct_coeff_table_1' [344]  (2.39 ns)
+
+ <State 19>: 2.39ns
+The critical path consists of the following:
+	'getelementptr' operation ('dct_coeff_table_0_ad_1', resource/lab3/dct.c:16->resource/lab3/dct.c:44) [339]  (0 ns)
+	'load' operation ('dct_coeff_table_0_lo_1', resource/lab3/dct.c:16->resource/lab3/dct.c:44) on array 'dct_coeff_table_0' [340]  (2.39 ns)
+
+ <State 20>: 9.4ns
+The critical path consists of the following:
+	'mul' operation ('tmp_7_7_i1', resource/lab3/dct.c:17->resource/lab3/dct.c:44) [370]  (3.36 ns)
+	'add' operation ('tmp13', resource/lab3/dct.c:19->resource/lab3/dct.c:44) [375]  (3.02 ns)
+	'add' operation ('tmp14', resource/lab3/dct.c:19->resource/lab3/dct.c:44) [376]  (3.02 ns)
+
+ <State 21>: 10.8ns
+The critical path consists of the following:
+	'mul' operation ('tmp_7_i5', resource/lab3/dct.c:17->resource/lab3/dct.c:44) [342]  (3.36 ns)
+	'add' operation ('tmp5', resource/lab3/dct.c:19->resource/lab3/dct.c:44) [371]  (3.02 ns)
+	'add' operation ('tmp11', resource/lab3/dct.c:19->resource/lab3/dct.c:44) [373]  (2.44 ns)
+	'add' operation ('tmp_3_i1', resource/lab3/dct.c:19->resource/lab3/dct.c:44) [378]  (1.97 ns)
+
+ <State 22>: 2.71ns
+The critical path consists of the following:
+	'getelementptr' operation ('dst_assign_1_addr', resource/lab3/dct.c:19->resource/lab3/dct.c:44) [334]  (0 ns)
+	'store' operation (resource/lab3/dct.c:19->resource/lab3/dct.c:44) of variable 'tmp_5_i1', resource/lab3/dct.c:19->resource/lab3/dct.c:44 on array 'dst' [380]  (2.71 ns)
+
+ <State 23>: 0ns
+The critical path consists of the following:
+
+ <State 24>: 7.68ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', resource/lab3/dct.c:50) [390]  (0 ns)
+	'icmp' operation ('tmp_34', resource/lab3/dct.c:50) [398]  (1.88 ns)
+	'select' operation ('j_1_cast_mid2_v', resource/lab3/dct.c:48) [400]  (1.37 ns)
+	'add' operation ('tmp_38', resource/lab3/dct.c:51) [410]  (1.72 ns)
+	'getelementptr' operation ('dst_assign_1_addr_1', resource/lab3/dct.c:51) [412]  (0 ns)
+	'load' operation ('dst_assign_1_load', resource/lab3/dct.c:51) on array 'dst' [416]  (2.71 ns)
+
+ <State 25>: 5.42ns
+The critical path consists of the following:
+	'load' operation ('dst_assign_1_load', resource/lab3/dct.c:51) on array 'dst' [416]  (2.71 ns)
+	'store' operation (resource/lab3/dct.c:51) of variable 'dst_assign_1_load', resource/lab3/dct.c:51 on array 'out_block' [417]  (2.71 ns)
+
+ <State 26>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
