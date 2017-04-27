@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="fir.h" path="C:\Users\Andrew\Documents\Vivado_projects\HLS_Xilinx_university_program\labs\lab4\fir.h"/>
+    <originFiles name="fir_coef.dat" path="C:\Users\Andrew\Documents\Vivado_projects\HLS_Xilinx_university_program\labs\lab4\fir_coef.dat"/>
+    <originFiles name="fir.c" path="C:\Users\Andrew\Documents\Vivado_projects\HLS_Xilinx_university_program\labs\lab4\fir.c"/>
+  </source>
+  <testbench>
+    <originFiles name="fir_test.c" path="C:\Users\Andrew\Documents\Vivado_projects\HLS_Xilinx_university_program\labs\lab4\fir_test.c"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

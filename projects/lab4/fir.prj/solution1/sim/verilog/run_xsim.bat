@@ -1,0 +1,4 @@
+
+call xelab xil_defaultlib.apatb_fir_top -prj fir.prj --initfile "D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini" --lib "ieee_proposed=./ieee_proposed" -s fir 
+call xsim --noieeewarnings fir -tclbatch fir.tcl
+

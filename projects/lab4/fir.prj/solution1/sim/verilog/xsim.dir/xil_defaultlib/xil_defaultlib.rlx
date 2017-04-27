@@ -1,0 +1,11 @@
+0.6
+2016.3
+Oct 10 2016
+19:46:48
+C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab4/fir.prj/solution1/sim/verilog/fir.autotb.v,1493288004,systemVerilog,,,,apatb_fir_top,D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab4/fir.prj/solution1/sim/verilog/fir.v,1493287957,systemVerilog,,,,fir,D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab4/fir.prj/solution1/sim/verilog/fir_c.v,1493287957,systemVerilog,,,,fir_c;fir_c_rom,D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab4/fir.prj/solution1/sim/verilog/fir_mac_muladd_10dEe.v,1493287957,systemVerilog,,,,fir_mac_muladd_10dEe;fir_mac_muladd_10dEe_DSP48_2,D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab4/fir.prj/solution1/sim/verilog/fir_mac_muladd_16cud.v,1493287957,systemVerilog,,,,fir_mac_muladd_16cud;fir_mac_muladd_16cud_DSP48_1,D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab4/fir.prj/solution1/sim/verilog/fir_mul_mul_16s_1bkb.v,1493287957,systemVerilog,,,,fir_mul_mul_16s_1bkb;fir_mul_mul_16s_1bkb_DSP48_0,D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Users/Andrew/Documents/Vivado_projects/HLS_Xilinx_university_program/projects/lab4/fir.prj/solution1/sim/verilog/fir_shift_reg.v,1493287957,systemVerilog,,,,fir_shift_reg;fir_shift_reg_ram,D:/Programs/Vivado/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
